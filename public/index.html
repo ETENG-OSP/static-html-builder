@@ -3,15 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/bower_components/normalize-css/normalize.css" rel="stylesheet">
-  <link href="less/app.less" rel="stylesheet/less">
 
+  <!-- build:css css/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:less css/app.css -->
+  <link href="less/app.less" rel="stylesheet/less">
   <script src="/bower_components/less/dist/less-1.7.4.js"></script>
+  <!-- endbuild -->
+
 </head>
 <body>
-  <div class="top">aaa</div>
 
-
+  <!-- build:js js/vendor.js -->
+  <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js js/mylib.js -->
+  <script src="js/goodtouse.js"></script>
+  <!-- endbuild -->
+
+
 </body>
 </html>
