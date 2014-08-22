@@ -22,14 +22,11 @@ module.exports = function (grunt) {
     },
 
     useminPrepare: {
-      html: '<%= config.app %>/_index.html',
-      options: {
-        dest: '<%= config.dist %>'
-      }
+      html: '<%= config.app %>/**/*.html',
     },
 
     usemin: {
-      html: '<%= config.app %>/_index.html',
+      html: '<%= config.app %>/**/*.html',
       options: {
         blockReplacements: {
           less: function (block) {
@@ -74,13 +71,11 @@ module.exports = function (grunt) {
     },
 
     copy: {
-      dev: {
-        src: '<%= config.app %>/index.html',
-        dest: '<%= config.app %>/_index.html'
-      },
       dist: {
-        src: '<%= config.app %>/_index.html',
-        dest: '<%= config.dist %>/index.html'
+        expand: true,
+        cwd: '<%= config.app %>',
+        src: '**/*.html',
+        dest: '<%= config.dist %>/'
       }
     },
 
@@ -94,6 +89,17 @@ module.exports = function (grunt) {
     }
 
   });
+
+  grunt.registerTask('newbuild', [
+    'clean',
+    'wiredep:dev',
+    'copy:dist',
+    'useminPrepare',
+    'concat:generated',
+    'cssmin:generated',
+    'uglify:generated',
+    'usemin'
+  ]);
 
   grunt.registerTask('build', [
     'clean:dist',
