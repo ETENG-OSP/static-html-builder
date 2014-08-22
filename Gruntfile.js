@@ -22,11 +22,39 @@ module.exports = function (grunt) {
     },
 
     useminPrepare: {
-      html: '<%= config.app %>/**/*.html',
+      html: '<%= config.dist %>/**/*.html',
+      options: {
+        flow: {
+          steps: {
+            js: ['concat', 'uglifyjs'],
+            css: ['concat', 'cssmin'],
+            less: [{
+              name: 'less',
+              createConfig: function (context, block) {
+                var options = {};
+
+                var files = context.inFiles.filter(function (file) {
+                  return file.substr(file.length - 5, 5) === '.less';
+                });
+
+                options.files = files.map(function (file) {
+                  return {
+                    src: '<%= config.app%>/' + file,
+                    dest: '<%= config.dist%>/' + file.replace(/less/g, 'css')
+                  }
+                });
+
+                return options;
+              }
+            }]
+          },
+          post: {}
+        }
+      }
     },
 
     usemin: {
-      html: '<%= config.app %>/**/*.html',
+      html: '<%= config.dist %>/**/*.html',
       options: {
         blockReplacements: {
           less: function (block) {
@@ -45,6 +73,12 @@ module.exports = function (grunt) {
       }
     },
 
+    less: {
+      options: {
+        compress: true
+      }
+    },
+
     connect: {
       options: {
         port: 9000
@@ -58,14 +92,6 @@ module.exports = function (grunt) {
               connect.static(appConfig.app)
             ];
           }
-        }
-      }
-    },
-
-    less: {
-      dev: {
-        files: {
-          '<%= config.dist %>/css/app.css': '<%= config.app %>/less/app.less'
         }
       }
     },
@@ -90,7 +116,7 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('newbuild', [
+  grunt.registerTask('build', [
     'clean',
     'wiredep:dev',
     'copy:dist',
@@ -98,21 +124,8 @@ module.exports = function (grunt) {
     'concat:generated',
     'cssmin:generated',
     'uglify:generated',
+    'less:generated',
     'usemin'
-  ]);
-
-  grunt.registerTask('build', [
-    'clean:dist',
-    'copy:dev',
-    'wiredep:dist',
-    'useminPrepare',
-    'concat:generated',
-    'cssmin:generated',
-    'uglify:generated',
-    'usemin',
-    'copy:dist',
-    'clean:temp',
-    'less'
   ]);
 
   grunt.registerTask('serve', ['wiredep:dev', 'connect:dev', 'watch:dev']);
