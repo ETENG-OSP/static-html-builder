@@ -10,7 +10,15 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-  <!-- build:less css/app.css -->
+  <!-- build:js(.) js/ie.js -->
+  <!--[if lt IE 9]>
+    <script src="/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/respond/respond.src.js"></script>
+  <![endif]-->
+  <!-- endbuild -->
+
+  <!-- build:less css/appx.css -->
   <link href="less/app.less" rel="stylesheet/less">
   <script src="/bower_components/less/dist/less-1.7.4.js"></script>
   <!-- endbuild -->
@@ -27,7 +35,6 @@
   <!-- build:js(public) js/mylib.js -->
   <script src="js/goodtouse.js"></script>
   <!-- endbuild -->
-
 
 </body>
 </html>

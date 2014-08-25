@@ -12,12 +12,8 @@ module.exports = function (grunt) {
     wiredep: {
       dev: {
         src: '<%= config.app %>/index.html',
-        exclude: ['less'],
+        exclude: ['less', 'es5-shim', 'html5shiv', 'respond'],
         ignorePath: '..'
-      },
-      dist: {
-        src: '<%= config.app %>/_index.html',
-        exclude: ['less']
       }
     },
 
@@ -40,7 +36,7 @@ module.exports = function (grunt) {
                 options.files = files.map(function (file) {
                   return {
                     src: '<%= config.app%>/' + file,
-                    dest: '<%= config.dist%>/' + file.replace(/less/g, 'css')
+                    dest: '<%= config.dist%>/' + block.dest
                   }
                 });
 
