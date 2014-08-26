@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
@@ -79,13 +81,28 @@ module.exports = function (grunt) {
       options: {
         port: 9000
       },
+      dist: {
+        options: {
+          base: 'dist',
+          keepalive: true
+        }
+      },
       dev: {
         options: {
           livereload: true,
           middleware: function (connect) {
             return [
               connect().use('/bower_components', connect.static('bower_components')),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+              // function (req, res) {
+              //   var index = appConfig.app + '/index.html';
+              //   res.writeHead(200, {
+              //     'Content-Type': 'text/html',
+              //     'Content-Length': fs.statSync(index)
+              //   });
+              //   var stream = fs.createReadStream(index);
+              //   stream.pipe(res);
+              // }
             ];
           }
         }

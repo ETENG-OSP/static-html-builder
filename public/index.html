@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
 <head>
+  <base href="/"></base>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,15 +26,22 @@
 
 </head>
 <body>
+  <div ng-view></div>
 
   <!-- build:js(.) js/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
-  <!-- build:js(public) js/mylib.js -->
-  <script src="js/goodtouse.js"></script>
+  <!-- build:js(public) js/app.js -->
+  <script src="js/controllers.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/app.js"></script>
+
+  <script src="controllers/page.js"></script>
   <!-- endbuild -->
 
 </body>
