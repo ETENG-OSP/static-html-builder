@@ -12,6 +12,23 @@ module.exports = function (grunt) {
   grunt.initConfig({
     config: appConfig,
 
+    includeSource: {
+      options: {
+        basePath: '<%= config.app %>',
+        baseUrl: '<%= config.app %>',
+        templates: {
+          html: {
+            js: '<script src="{filePath}"></script>'
+          }
+        }
+      },
+      dev: {
+        files: {
+          '<%= config.framework %>/index.html': '<%= config.framework %>/index.html'
+        }
+      }
+    },
+
     wiredep: {
       dev: {
         src: '<%= config.framework %>/index.html',
