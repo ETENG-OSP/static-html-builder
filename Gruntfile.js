@@ -68,7 +68,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          base: 'dist',
+          base: '<%= config.dist %>',
           keepalive: true
         }
       },
