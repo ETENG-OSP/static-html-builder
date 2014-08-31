@@ -6,36 +6,12 @@ module.exports = function (grunt) {
   var appConfig = {
     app: 'app',
     framework: 'framework',
-    dist: 'dist'
+    dist: 'dist',
+    temp: '.tmp'
   };
 
   grunt.initConfig({
     config: appConfig,
-
-    includeSource: {
-      options: {
-        basePath: '<%= config.app %>',
-        baseUrl: '<%= config.app %>',
-        templates: {
-          html: {
-            js: '<script src="{filePath}"></script>'
-          }
-        }
-      },
-      dev: {
-        files: {
-          '<%= config.framework %>/index.html': '<%= config.framework %>/index.html'
-        }
-      }
-    },
-
-    wiredep: {
-      dev: {
-        src: '<%= config.framework %>/index.html',
-        exclude: ['less', 'es5-shim', 'html5shiv', 'respond'],
-        ignorePath: '../'
-      }
-    },
 
     useminPrepare: {
       html: '<%= config.dist %>/**/*.html',
@@ -67,8 +43,7 @@ module.exports = function (grunt) {
                 return options;
               }
             }]
-          },
-          post: {}
+          }
         }
       }
     },
@@ -81,23 +56,6 @@ module.exports = function (grunt) {
             return '<link rel="stylesheet" href="' + block.dest + '">';
           }
         }
-      }
-    },
-
-    watch: {
-      dev: {
-        files: '<%= config.app %>/**/*.*',
-        options: {
-          livereload: true
-        }
-      }
-    },
-
-    less: {
-      options: {
-        sourceMap: true,
-        outputSourceFiles: true,
-        compress: true
       }
     },
 
@@ -118,45 +76,25 @@ module.exports = function (grunt) {
             return [
               connect().use('/bower_components', connect.static('bower_components')),
               connect.static(appConfig.app),
-              // function (req, res) {
-              //   var index = appConfig.app + '/index.html';
-              //   res.writeHead(200, {
-              //     'Content-Type': 'text/html',
-              //     'Content-Length': fs.statSync(index)
-              //   });
-              //   var stream = fs.createReadStream(index);
-              //   stream.pipe(res);
-              // }
+              connect.static(appConfig.framework)
             ];
           }
         }
       }
     },
 
-    copy: {
-      dist: {
-        expand: true,
-        cwd: '<%= config.app %>',
-        src: '**/*.html',
-        dest: '<%= config.dist %>/'
-      }
-    },
-
-    clean: {
-      temp: {
-        src: '<%= config.app %>/_index.html'
-      },
-      dist: {
-        src: '<%= config.dist %>'
-      }
-    }
-
+    includeSource: grunt.file.readJSON('config/include-source.json'),
+    wiredep: grunt.file.readJSON('config/wiredep.json'),
+    watch: grunt.file.readJSON('config/watch.json'),
+    less: grunt.file.readJSON('config/less.json'),
+    copy: grunt.file.readJSON('config/copy.json'),
+    clean: grunt.file.readJSON('config/clean.json')
   });
 
   grunt.registerTask('build', [
     'clean',
     'wiredep:dev',
-    'copy:dist',
+    'copy',
     'useminPrepare',
     'concat:generated',
     'cssmin:generated',
@@ -165,7 +103,6 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
-  grunt.registerTask('serve', ['wiredep:dev', 'connect:dev', 'watch:dev']);
-
+  grunt.registerTask('serve', ['includeSource:dev', 'wiredep:dev', 'connect:dev', 'watch:dev']);
   grunt.registerTask('default', ['serve']);
 };

@@ -1,0 +1,7 @@
+{
+  "options": {
+    "sourceMap": true,
+    "outputSourceFiles": true,
+    "compress": true
+  }
+}

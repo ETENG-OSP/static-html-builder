@@ -1,0 +1,8 @@
+{
+  "dev": {
+    "files": "<%= config.app %>/**/*.*",
+    "options": {
+      "livereload": true
+    }
+  }
+}
