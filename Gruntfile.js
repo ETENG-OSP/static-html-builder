@@ -4,7 +4,8 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
   var appConfig = {
-    app: 'public',
+    app: 'app',
+    framework: 'framework',
     dist: 'dist'
   };
 
@@ -13,9 +14,9 @@ module.exports = function (grunt) {
 
     wiredep: {
       dev: {
-        src: '<%= config.app %>/index.html',
+        src: '<%= config.framework %>/index.html',
         exclude: ['less', 'es5-shim', 'html5shiv', 'respond'],
-        ignorePath: '..'
+        ignorePath: '../'
       }
     },
 
@@ -36,9 +37,13 @@ module.exports = function (grunt) {
                 });
 
                 options.files = files.map(function (file) {
+                  context.options.generated.options = {
+                    sourceMapURL: block.dest + '.map',
+                    sourceMapFilename: '<%= config.dist %>/css/' + block.dest + '.map'
+                  };
                   return {
-                    src: '<%= config.app%>/' + file,
-                    dest: '<%= config.dist%>/' + block.dest
+                    src: '<%= config.app %>/' + file,
+                    dest: '<%= config.dist %>/' + block.dest
                   }
                 });
 
@@ -73,6 +78,8 @@ module.exports = function (grunt) {
 
     less: {
       options: {
+        sourceMap: true,
+        outputSourceFiles: true,
         compress: true
       }
     },
