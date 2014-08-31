@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
@@ -24,15 +25,16 @@ module.exports = function (grunt) {
               name: 'less',
               createConfig: function (context, block) {
                 var options = {};
+                var basename = path.basename(block.dest);
 
                 var files = context.inFiles.filter(function (file) {
-                  return file.substr(file.length - 5, 5) === '.less';
+                  return path.extname(file) === '.less';
                 });
 
                 options.files = files.map(function (file) {
                   context.options.generated.options = {
-                    sourceMapURL: block.dest + '.map',
-                    sourceMapFilename: '<%= config.dist %>/css/' + block.dest + '.map'
+                    sourceMapURL: basename + '.map',
+                    sourceMapFilename: '<%= config.dist %>/' + block.dest + '.map'
                   };
                   return {
                     src: '<%= config.app %>/' + file,
@@ -42,8 +44,9 @@ module.exports = function (grunt) {
 
                 return options;
               }
-            }]
-          }
+            }],
+          },
+          post: {}
         }
       }
     },
@@ -93,16 +96,22 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean',
-    'wiredep:dev',
+    'prepareHtml',
     'copy',
     'useminPrepare',
+    'generated',
+    'usemin',
+    'clean:temp'
+  ]);
+
+  grunt.registerTask('generated', [
     'concat:generated',
     'cssmin:generated',
     'uglify:generated',
-    'less:generated',
-    'usemin'
+    'less:generated'
   ]);
 
-  grunt.registerTask('serve', ['includeSource:dev', 'wiredep:dev', 'connect:dev', 'watch:dev']);
+  grunt.registerTask('prepareHtml', ['includeSource:dev', 'wiredep:dev']);
+  grunt.registerTask('serve', ['prepareHtml', 'connect:dev', 'watch:dev']);
   grunt.registerTask('default', ['serve']);
 };
