@@ -112,6 +112,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('prepareHtml', ['includeSource:dev', 'wiredep:dev']);
-  grunt.registerTask('serve', ['prepareHtml', 'connect:dev', 'watch:dev']);
+  grunt.registerTask('serve', ['prepareHtml', 'connect:dev', 'watch']);
   grunt.registerTask('default', ['serve']);
 };
