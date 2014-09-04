@@ -14,14 +14,15 @@
     "tests"
   ],
   "dependencies": {
-    "angular-route": "~1.2.23",
-    "bootstrap": "~3.2.0",
-    "es5-shim": "~4.0.3",
-    "html5shiv": "~3.7.2",
-    "less": "~1.7.4",
-    "jquery": "1",
-    "respond": "~1.4.2",
-    "socket.io-client": "~1.0.6"
+    "less": "latest",
+    "jquery": "~1",
+    "phaser": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "html5shiv": "latest",
+    "es5-shim": "latest",
+    "respond": "latest",
+    "bootstrap": "latest"
   },
   "overrides": {
     "socket.io-client": {
