@@ -3,6 +3,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     config: require('./config/config'),
+    lineending: require('./config/lineending'),
     connect: require('./config/connect'),
     useminPrepare: require('./config/usemin-prepare'),
     usemin: require('./config/usemin'),
@@ -31,7 +32,7 @@ module.exports = function (grunt) {
     'less:generated'
   ]);
 
-  grunt.registerTask('prepareHtml', ['includeSource:dev', 'wiredep:dev']);
+  grunt.registerTask('prepareHtml', ['includeSource:dev', 'wiredep:dev', 'lineending']);
   grunt.registerTask('serve', ['prepareHtml', 'connect:dev', 'watch']);
   grunt.registerTask('default', ['serve']);
 };

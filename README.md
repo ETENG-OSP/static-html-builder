@@ -5,8 +5,8 @@ static-html-builder
 
 特点：
 
-1.使用less
-2.使用bower
+1. 使用less
+2. 使用bower
 
 
 安装方法
