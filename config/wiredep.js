@@ -6,7 +6,7 @@ module.exports = {
       'es5-shim',
       'html5shiv',
       'respond',
-      'phaser'
+      'xdomain'
     ],
     ignorePath: '../'
   }

@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "build angular SPA",
   "main": "Gruntfile.js",
   "dependencies": {},
@@ -15,7 +15,7 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-include-source": "latest",
-    "grunt-lineending": "^0.2.2",
+    "grunt-lineending": "latest",
     "grunt-usemin": "latest",
     "grunt-wiredep": "latest",
     "load-grunt-tasks": "latest"

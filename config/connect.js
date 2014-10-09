@@ -6,6 +6,7 @@ module.exports = {
   },
   dist: {
     options: {
+      hostname: '*',
       base: '<%= config.dist %>',
       keepalive: true
     }

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "js": {
     "files": "<%= config.app %>/**/*.js",
     "tasks": ["includeSource"],
@@ -12,4 +12,4 @@
       "livereload": true
     }
   }
-}
+};

@@ -3,6 +3,12 @@ angular.module('app.controllers').controller('root', [
   'welcome',
 function ($scope, welcome) {
 
-  $scope.text = welcome.getText();
+  function load() {
+    welcome.getText().then(function (result) {
+      $scope.text = result;
+    });
+  }
+
+  load();
 
 }]);

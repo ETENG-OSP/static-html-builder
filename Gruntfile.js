@@ -7,12 +7,12 @@ module.exports = function (grunt) {
     connect: require('./config/connect'),
     useminPrepare: require('./config/usemin-prepare'),
     usemin: require('./config/usemin'),
-    includeSource: grunt.file.readJSON('config/include-source.json'),
+    includeSource: require('./config/include-source'),
     wiredep: require('./config/wiredep'),
-    watch: grunt.file.readJSON('config/watch.json'),
-    less: grunt.file.readJSON('config/less.json'),
-    copy: grunt.file.readJSON('config/copy.json'),
-    clean: grunt.file.readJSON('config/clean.json')
+    watch: require('./config/watch'),
+    less: require('./config/less'),
+    copy: require('./config/copy'),
+    clean: require('./config/clean')
   });
 
   grunt.registerTask('build', [
@@ -26,13 +26,23 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('generated', [
-    'concat:generated',
-    'cssmin:generated',
-    'uglify:generated',
-    'less:generated'
+    'concat',
+    'cssmin',
+    'uglify',
+    'less'
   ]);
 
-  grunt.registerTask('prepareHtml', ['includeSource:dev', 'wiredep:dev', 'lineending']);
-  grunt.registerTask('serve', ['prepareHtml', 'connect:dev', 'watch']);
+  grunt.registerTask('prepareHtml', [
+    'includeSource',
+    'wiredep',
+    'lineending'
+  ]);
+
+  grunt.registerTask('serve', [
+    'prepareHtml',
+    'connect:dev',
+    'watch'
+  ]);
+
   grunt.registerTask('default', ['serve']);
 };

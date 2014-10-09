@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "homepage": "https://github.com/gengen1988/static-html-builder",
   "authors": [
     "Gen Liu <gerald_721@hotmail.com>"
@@ -24,7 +24,7 @@
     "bootstrap": "latest"
   },
   "overrides": {
-    "iconmoon": {
+    "icomoon": {
       "main": "style.css"
     },
     "socket.io-client": {
