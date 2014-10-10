@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title || 'Static Html Builder App'}}</title>
 
   <!-- build:css(.) css/vendor.css -->
   <!-- bower:css -->
@@ -11,10 +12,12 @@
   <!-- endbuild -->
 
   <!-- build:js(.) js/ie.js -->
-  <!--[if lt IE 9]>
+  <!--[if lte IE 9]>
     <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/respond/respond.src.js"></script>
+    <script src="bower_components/es5-shim/es5-sham.js"></script>
+    <script src="bower_components/respond/dest/respond.src.js"></script>
+    <script src="bower_components/xdomain/dist/0.6/xdomain.js"></script>
   <![endif]-->
   <!-- endbuild -->
 
@@ -30,9 +33,10 @@
   <!-- build:js(.) js/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -40,6 +44,7 @@
   <script src="js/constants.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
   <script src="js/routes.js"></script>
   <script src="js/services.js"></script>
   <script src="js/app.js"></script>

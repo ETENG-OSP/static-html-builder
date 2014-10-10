@@ -16,12 +16,14 @@
   "dependencies": {
     "less": "latest",
     "jquery": "~1",
-    "angular": "latest",
-    "angular-route": "latest",
     "html5shiv": "latest",
     "es5-shim": "latest",
     "respond": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "xdomain": "latest",
+    "angular-file-upload": "latest"
   },
   "overrides": {
     "icomoon": {
