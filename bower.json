@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "homepage": "https://github.com/gengen1988/static-html-builder",
   "authors": [
     "Gen Liu <gerald_721@hotmail.com>"
@@ -22,8 +22,7 @@
     "bootstrap": "latest",
     "angular": "latest",
     "angular-route": "latest",
-    "xdomain": "latest",
-    "angular-file-upload": "latest"
+    "console-polyfill": "latest"
   },
   "overrides": {
     "icomoon": {

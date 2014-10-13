@@ -3,6 +3,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     config: require('./config/config'),
+    jshint: require('./config/jshint'),
     lineending: require('./config/lineending'),
     connect: require('./config/connect'),
     useminPrepare: require('./config/usemin-prepare'),
@@ -39,6 +40,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serve', [
+    'jshint',
     'prepareHtml',
     'connect:dev',
     'watch'

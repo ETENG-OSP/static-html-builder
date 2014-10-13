@@ -4,6 +4,5 @@ angular.module('app', [
   'app.directives',
   'app.filters',
   'app.services',
-  'app.routes',
-  'angularFileUpload'
+  'app.routes'
 ]);

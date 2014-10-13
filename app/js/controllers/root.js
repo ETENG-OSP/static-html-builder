@@ -1,14 +1,8 @@
 angular.module('app.controllers').controller('root', [
   '$scope',
-  'FileUploader',
   '$http',
   'config',
-  'welcome',
-function ($scope, FileUploader, $http, config, welcome) {
+function ($scope, $http, config) {
+  'use strict';
   console.log('root loaded');
-
-  $scope.uploader = new FileUploader({
-    url: config.host + '/upload'
-  });
-
 }]);

@@ -3,11 +3,11 @@ angular.module('app.services').service('welcome', [
   '$http',
   '$q',
 function (config, $http, $q) {
-
+  'use strict';
   this.getText = function () {
     var deferred = $q.defer();
 
-    $http.put(config.host + '/api/text')
+    $http.put('/api/text')
       .success(deferred.resolve)
       .error(deferred.reject);
 

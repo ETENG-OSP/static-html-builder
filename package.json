@@ -1,11 +1,11 @@
 {
   "name": "static-html-builder",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "build angular SPA",
   "main": "Gruntfile.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
     "grunt-contrib-clean": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-connect": "latest",
@@ -18,7 +18,8 @@
     "grunt-lineending": "latest",
     "grunt-usemin": "latest",
     "grunt-wiredep": "latest",
-    "load-grunt-tasks": "latest"
+    "load-grunt-tasks": "latest",
+    "http-proxy": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,7 +28,7 @@
     "type": "git",
     "url": "https://github.com/gengen1988/static-html-builder.git"
   },
-  "author": "",
+  "author": "Gen Liu",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gengen1988/static-html-builder/issues"

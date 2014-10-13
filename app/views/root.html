@@ -1,4 +1,6 @@
 <div ng-controller="root">
-  <input type="file" nv-file-select uploader="uploader">
-  <button ng-click="uploader.uploadAll()">up!</button>
+  <input type="text" ng-model="name" />
+  <input type="file">
+  <button ng-click="upload(name)">up!</button>
+  <div>{{msg}}</div>
 </div>

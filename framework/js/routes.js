@@ -1,6 +1,5 @@
 angular.module('app.routes', ['ngRoute']).config([
   '$locationProvider',
-  '$routeProvider',
-function ($locationProvider, $routeProvider) {
+function ($locationProvider) {
   $locationProvider.html5Mode(false).hashPrefix('!');
 }]);
