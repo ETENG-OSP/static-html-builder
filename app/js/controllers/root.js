@@ -1,8 +1,5 @@
 angular.module('app.controllers').controller('root', [
-  '$scope',
-  '$http',
-  'config',
-function ($scope, $http, config) {
+function () {
   'use strict';
   console.log('root loaded');
 }]);

@@ -1,6 +1,6 @@
 module.exports = {
   dev: {
-    src: '<%= config.framework %>/index.html',
+    src: ['framework/index.html'],
     exclude: [
       'less',
       'es5-shim',

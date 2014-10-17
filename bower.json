@@ -20,8 +20,8 @@
     "es5-shim": "latest",
     "respond": "latest",
     "bootstrap": "latest",
-    "angular": "latest",
-    "angular-route": "latest",
+    "angular": "~1.2",
+    "angular-route": "~1.2",
     "console-polyfill": "latest"
   },
   "overrides": {
