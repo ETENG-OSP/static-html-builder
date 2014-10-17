@@ -2,6 +2,3 @@ node_modules
 bower_components
 .tmp
 dist
-
-framework/index.html
-framework/js/app.js

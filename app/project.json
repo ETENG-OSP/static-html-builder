@@ -1,0 +1,10 @@
+{
+  "angular": [
+    "angularFileUpload"
+  ],
+  "bower": [
+  ],
+  "stylesheet": [
+    "variable.less"
+  ]
+}

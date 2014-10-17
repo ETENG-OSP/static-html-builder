@@ -14,15 +14,15 @@
     "tests"
   ],
   "dependencies": {
-    "less": "*",
+    "less": "latest",
     "jquery": "~1",
-    "html5shiv": "*",
-    "es5-shim": "*",
-    "respond": "*",
-    "bootstrap": "~3",
+    "html5shiv": "latest",
+    "es5-shim": "latest",
+    "respond": "latest",
+    "bootstrap": "latest",
     "angular": "~1.2",
     "angular-route": "~1.2",
-    "console-polyfill": "*"
+    "console-polyfill": "latest"
   },
   "overrides": {
     "icomoon": {

@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'generated',
     'usemin',
-    'clean:temp'
+    //'clean:temp'
   ]);
 
   grunt.registerTask('generated', [

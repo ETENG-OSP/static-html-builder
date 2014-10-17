@@ -2,5 +2,6 @@ module.exports = {
   app: 'app',
   framework: 'framework',
   dist: 'dist',
-  temp: '.tmp'
+  temp: '.tmp',
+  generated: '.tmp/generated',
 };
