@@ -1,6 +1,6 @@
 module.exports = {
   dev: {
-    src: ['<%= config.framework %>/index.html'],
+    src: ['<%= config.generated %>/index.html'],
     options: {
       ignorePath: '../'
     }

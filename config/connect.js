@@ -21,6 +21,7 @@ module.exports = {
         return [
           connect().use('/bower_components', connect.static('bower_components')),
           connect.static(appConfig.app),
+          connect.static(appConfig.generated),
           connect.static(appConfig.framework),
           function (req, res) {
             proxy.web(req, res, {

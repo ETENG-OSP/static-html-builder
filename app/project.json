@@ -2,9 +2,10 @@
   "angular": [
     "angularFileUpload"
   ],
-  "bower": [
-  ],
   "stylesheet": [
     "variable.less"
-  ]
+  ],
+  "bower": {
+    "highcharts": "*"
+  }
 }
