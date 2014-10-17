@@ -1,0 +1,35 @@
+{
+  "name": "static-html-builder",
+  "version": "2.1.0",
+  "homepage": "https://github.com/gengen1988/static-html-builder",
+  "authors": [
+    "Gen Liu <gerald_721@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "less": "*",
+    "jquery": "~1",
+    "html5shiv": "*",
+    "es5-shim": "*",
+    "respond": "*",
+    "bootstrap": "~3",
+    "angular": "~1.2",
+    "angular-route": "~1.2",
+    "console-polyfill": "*"
+  },
+  "overrides": {
+    "icomoon": {
+      "main": "style.css"
+    },
+    "socket.io-client": {
+      "main": "socket.io.js"
+    }
+  }
+}
