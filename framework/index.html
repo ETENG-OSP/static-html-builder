@@ -37,9 +37,9 @@
   <!-- endbuild -->
 
   <!-- build:js({app,.tmp/generated}) js/app.js -->
+  <!-- include: "type": "js", "files": "**/*.urgent.js" -->
   <script src="app.js"></script>
-  <!-- include: "type": "js", "files": "**/*.js" -->
-  <!-- /include -->
+  <!-- include: "type": "js", "files": ["**/*.js", "!**/*.urgent.js"] -->
   <!-- endbuild -->
 
 </body>
