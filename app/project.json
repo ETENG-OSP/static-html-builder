@@ -1,9 +1,6 @@
 {
   "angularModules": [
   ],
-  "stylesheets": [
-    "less/variables.less"
-  ],
   "bowerComponents": {
   }
 }

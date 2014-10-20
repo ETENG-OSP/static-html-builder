@@ -42,8 +42,7 @@ module.exports = function (grunt) {
     'wiredep',
     'lineending',
     'copy:favicon',
-    'templateAngular',
-    'templateStylesheet'
+    'templateAngular'
   ]);
 
   grunt.registerTask('serve', [

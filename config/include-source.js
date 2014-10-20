@@ -8,9 +8,14 @@ module.exports = {
       }
     }
   },
-  "dev": {
-    "files": {
-      "<%= config.generated %>/index.html": "<%= config.framework %>/index.html"
+  scripts: {
+    files: {
+      '<%= config.generated %>/index.html': '<%= config.framework %>/index.html'
+    }
+  },
+  stylesheets: {
+    files: {
+      '<%= config.generated %>/app.less': '<%= config.framework %>/app.less'
     }
   }
 };
