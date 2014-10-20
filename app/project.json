@@ -1,9 +1,11 @@
 {
   "angularModules": [
   ],
-  "stylesheets": [
-    "less/variables.less"
-  ],
   "bowerComponents": {
+  },
+
+  "proxy": {
+    "apiServer": "http://localhost:8080/api",
+    "uploadServer": "http://localhost:8080/upload"
   }
 }
