@@ -1,0 +1,11 @@
+<div ng-controller="StoreController as store">
+  <ul>
+    <li ng-repeat="product in store.products">
+      <span class="name">{{product.name}}</span>
+      <span class="price">{{product.price}}</span>
+      <span>{{product.aaa}}</span>
+    </li>
+  </ul>
+
+  <button ng-click="store.add()">add</button>
+</div>

@@ -1,4 +1,4 @@
-angular.module('app.controllers').controller('root', [
+angular.module('app').controller('root', [
 function () {
   'use strict';
   console.log('root loaded');

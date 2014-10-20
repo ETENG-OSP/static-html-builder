@@ -1,11 +1,9 @@
 {
-  "angular": [
-    "angularFileUpload"
+  "angularModules": [
   ],
-  "stylesheet": [
-    "variable.less"
+  "stylesheets": [
+    "less/variables.less"
   ],
-  "bower": {
-    "highcharts": "*"
+  "bowerComponents": {
   }
 }

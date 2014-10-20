@@ -22,16 +22,15 @@ module.exports = {
           connect().use('/bower_components', connect.static('bower_components')),
           connect.static(appConfig.app),
           connect.static(appConfig.generated),
-          connect.static(appConfig.framework),
-          function (req, res) {
-            proxy.web(req, res, {
-              target: 'http://192.168.0.151:3000'
-            }, function (e) {
-              console.error(e);
-              res.statusCode = 500;
-              res.end();
-            });
-          }
+          // function (req, res) {
+          //   proxy.web(req, res, {
+          //     target: 'http://192.168.0.151:3000'
+          //   }, function (e) {
+          //     console.error(e);
+          //     res.statusCode = 500;
+          //     res.end();
+          //   });
+          // }
         ];
       }
     }

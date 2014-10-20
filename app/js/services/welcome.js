@@ -1,4 +1,4 @@
-angular.module('app.services').service('welcome', [
+angular.module('app').service('welcome', [
   'config',
   '$http',
   '$q',

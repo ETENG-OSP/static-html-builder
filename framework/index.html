@@ -22,7 +22,7 @@
   <!-- endbuild -->
 
   <!-- build:less css/app.css -->
-  <link href="less/app.less" rel="stylesheet/less">
+  <link href="app.less" rel="stylesheet/less">
   <script src="bower_components/less/dist/less-1.7.5.js"></script>
   <!-- endbuild -->
 
@@ -36,14 +36,8 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-  <!-- build:js({framework,app}) js/app.js -->
-  <script src="js/constants.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/routes.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/app.js"></script>
+  <!-- build:js({app,.tmp/generated}) js/app.js -->
+  <script src="app.js"></script>
   <!-- include: "type": "js", "files": "**/*.js" -->
   <!-- /include -->
   <!-- endbuild -->

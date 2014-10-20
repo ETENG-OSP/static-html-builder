@@ -1,5 +1,7 @@
-angular.module('app.controllers').controller('IndexViewController', [
+angular.module('app').controller('IndexViewController', [
   '$scope',
 function ($scope) {
+  'use strict';
+
   $scope.data = 'aaaa';
 }]);
