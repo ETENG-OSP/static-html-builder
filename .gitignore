@@ -3,4 +3,5 @@ bower_components
 .tmp
 dist
 
-./bower.json
+bower.json
+!framework/bower.json
