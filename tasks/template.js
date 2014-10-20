@@ -32,21 +32,4 @@ module.exports = function (grunt) {
     grunt.file.write('.tmp/generated/app.js', app);
   });
 
-  grunt.registerTask('templateStylesheet', function () {
-    var stylesheetTemplate = grunt.file.read('framework/app.less');
-    var projectDependencies = '';
-
-    data.stylesheets.forEach(function (filename) {
-      projectDependencies += '@import "' + filename + '";';
-    });
-
-    var stylesheet = grunt.template.process(stylesheetTemplate, {
-      data: {
-        projectDependencies: projectDependencies
-      }
-    });
-
-    grunt.file.write('.tmp/generated/app.less', stylesheet);
-  });
-
 };
