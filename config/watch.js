@@ -1,15 +1,16 @@
 module.exports = {
-  "js": {
-    "files": "<%= config.app %>/**/*.js",
-    "tasks": ["includeSource"],
-    "options": {
-      "spawn": false
-    }
+  scripts: {
+    files: '<%= config.app %>/**/*.js',
+    tasks: ['includeSource:scripts']
   },
-  "dev": {
-    "files": "<%= config.app %>/**/*.*",
-    "options": {
-      "livereload": true
+  stylesheets: {
+    files: '<%= config.app %>/**/*.less',
+    tasks: ['includeSource:stylesheets']
+  },
+  dev: {
+    files: '<%= config.app %>/**/*.*',
+    options: {
+      livereload: true
     }
   }
 };
