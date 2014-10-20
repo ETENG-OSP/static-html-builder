@@ -5,7 +5,7 @@
   },
 
   "proxy": {
-    "apiServer": "http://localhost:8080/api",
-    "uploadServer": "http://localhost:8080/upload"
+    "/api": "http://localhost:8080",
+    "/servlet": "http://localhost:8080"
   }
 }

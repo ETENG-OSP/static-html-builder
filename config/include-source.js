@@ -1,10 +1,10 @@
 module.exports = {
-  "options": {
-    "basePath": "<%= config.app %>",
-    "baseUrl": "<%= config.app %>",
-    "templates": {
-      "html": {
-        "js": "<script src=\"{filePath}\"></script>"
+  options: {
+    basePath: '<%= config.app %>',
+    baseUrl: '<%= config.app %>',
+    templates: {
+      html: {
+        js: '<script src="{filePath}"></script>'
       }
     }
   },

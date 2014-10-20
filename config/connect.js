@@ -1,5 +1,6 @@
 var httpProxy = require('http-proxy');
-var appConfig = require('./config');
+var config = require('./config');
+var project = require('../app/project.json');
 
 var proxy = httpProxy.createProxyServer();
 
@@ -18,20 +19,25 @@ module.exports = {
     options: {
       livereload: true,
       middleware: function (connect) {
-        return [
-          connect().use('/bower_components', connect.static('bower_components')),
-          connect.static(appConfig.app),
-          connect.static(appConfig.generated),
-          // function (req, res) {
-          //   proxy.web(req, res, {
-          //     target: 'http://192.168.0.151:3000'
-          //   }, function (e) {
-          //     console.error(e);
-          //     res.statusCode = 500;
-          //     res.end();
-          //   });
-          // }
+        var app = connect();
+        var middlewares = [
+          app.use('/bower_components', connect.static('bower_components')),
+          connect.static(config.app),
+          connect.static(config.generated)
         ];
+
+        Object.keys(project.proxy).forEach(function (pathname) {
+          app.use(pathname, function (req, res) {
+            proxy.web(req, res {
+              target: project.proxy[pathname] + pathname
+            }, function (e) {
+              res.statusCode = 500;
+              res.end();
+            });
+          });
+        });
+
+        return middlewares;
       }
     }
   }
