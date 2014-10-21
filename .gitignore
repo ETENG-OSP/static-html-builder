@@ -5,3 +5,5 @@ dist
 
 bower.json
 !framework/bower.json
+
+.directory
