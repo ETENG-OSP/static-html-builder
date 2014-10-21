@@ -22,5 +22,9 @@ module.exports = {
   less: {
     src: '<%= config.generated %>/app.less',
     dest: '<%= config.app %>/app.less'
+  },
+  prepareHtml: {
+    src: '<%= config.framework %>/index.html',
+    dest: '<%= config.generated %>/index.html'
   }
 };
