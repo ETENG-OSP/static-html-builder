@@ -20,17 +20,9 @@
     "html5shiv": "latest",
     "es5-shim": "latest",
     "respond": "latest",
-    "bootstrap": "latest",
     "angular": "~1.2",
     "angular-route": "~1.2",
     "console-polyfill": "latest"
   },
-  "overrides": {
-    "icomoon": {
-      "main": "style.css"
-    },
-    "socket.io-client": {
-      "main": "socket.io.js"
-    }
-  }
+  "overrides": <%= projectOverrides %>
 }
