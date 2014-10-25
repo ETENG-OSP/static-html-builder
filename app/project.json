@@ -1,8 +1,10 @@
 {
   "angularModules": [
+    "demo"
   ],
 
   "bowerDependencies": {
+    "bootstrap": "*"
   },
 
   "bowerOverrides": {
