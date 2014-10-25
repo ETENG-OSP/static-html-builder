@@ -1,7 +1,11 @@
 {
   "angularModules": [
   ],
-  "bowerComponents": {
+
+  "bowerDependencies": {
+  },
+
+  "bowerOverrides": {
   },
 
   "proxy": {

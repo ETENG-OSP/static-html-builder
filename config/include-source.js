@@ -15,7 +15,7 @@ module.exports = {
   },
   stylesheets: {
     files: {
-      '<%= config.generated %>/app.less': '<%= config.generated %>/app.less'
+      '<%= config.generated %>/app.less': '<%= config.framework %>/app.less'
     }
   }
 };
