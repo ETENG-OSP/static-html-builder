@@ -4,7 +4,7 @@
   "description": "build angular SPA",
   "main": "Gruntfile.js",
   "dependencies": {
-    "grunt": "latest",
+    "grunt": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",

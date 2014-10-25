@@ -65,7 +65,8 @@
   // Environments
   "browser"       : true,     // Web Browser (window, document, etc)
   "devel"         : true,     // Development/debugging (alert, confirm, etc)
-  "jquery"        : true,    // jQuery
+  "jquery"        : true,     // jQuery
+  "node"          : true,
 
   // Custom Globals
   "globals"       : {
