@@ -10,8 +10,6 @@
     return deferred.promise;
   }
 
-  LoadData.$inject = ['$q'];
-
   function Config($routeProvider) {
     $routeProvider.when('/demo', {
       templateUrl: 'modules/demo/demo.html',
@@ -23,6 +21,7 @@
     });
   }
 
+  LoadData.$inject = ['$q'];
   Config.$inject = ['$routeProvider'];
   angular.module('demo', ['ngRoute']).config(Config);
 })();

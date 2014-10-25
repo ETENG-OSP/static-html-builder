@@ -2,4 +2,6 @@
 <div class="container">
   <div>a: {{demo.data.a}}</div>
   <div>b: {{demo.data.b}}</div>
+  <input type="checkbox" ng-model="demo.visible" />
+  <div ng-show="demo.visible">test visible</div>
 </div>
