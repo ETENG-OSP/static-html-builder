@@ -4,12 +4,13 @@ module.exports = function (grunt) {
   grunt.registerTask('templateBower', function () {
     var bowerTemplate = grunt.file.read('framework/bower.json');
     var projectDependencies = '';
-    Object.keys(data.bowerComponents).forEach(function (key) {
-      projectDependencies += '"' + key + '": "'+ data.bowerComponents[key] +'",';
+    Object.keys(data.bowerDependencies).forEach(function (key) {
+      projectDependencies += '"' + key + '": "'+ data.bowerDependencies[key] +'",';
     });
     var bower = grunt.template.process(bowerTemplate, {
       data: {
-        projectDependencies: projectDependencies
+        projectDependencies: projectDependencies,
+        projectOverrides: JSON.stringify(data.bowerOverrides)
       }
     });
     grunt.file.write('bower.json', JSON.stringify(JSON.parse(bower), null, 2));

@@ -10,12 +10,12 @@ module.exports = {
   },
   scripts: {
     files: {
-      '<%= config.generated %>/index.html': '<%= config.framework %>/index.html'
+      '<%= config.generated %>/index.html': '<%= config.generated %>/index.html'
     }
   },
   stylesheets: {
     files: {
-      '<%= config.generated %>/app.less': '<%= config.framework %>/app.less'
+      '<%= config.generated %>/app.less': '<%= config.generated %>/app.less'
     }
   }
 };

@@ -37,6 +37,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('prepareHtml', [
+    'copy:prepareHtml',
     'includeSource',
     'templateBower',
     'wiredep',
