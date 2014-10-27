@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "2.1.0",
+  "version": "4.0.0",
   "homepage": "https://github.com/gengen1988/static-html-builder",
   "authors": [
     "Gen Liu <gerald_721@hotmail.com>"
@@ -15,14 +15,16 @@
   ],
   "dependencies": {
     <%= projectDependencies %>
-    "less": "latest",
     "jquery": "~1",
-    "html5shiv": "latest",
-    "es5-shim": "latest",
-    "respond": "latest",
     "angular": "~1.2",
-    "angular-route": "~1.2",
-    "console-polyfill": "latest"
+    "angular-ui-router": "*",
+    "less": "*",
+    "html5shiv": "*",
+    "es5-shim": "*",
+    "respond": "*",
+    "console-polyfill": "*",
+    "almond": "*",
+    "requirejs": "*"
   },
   "overrides": <%= projectOverrides %>
 }
