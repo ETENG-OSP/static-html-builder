@@ -1,4 +1,6 @@
 module.exports = function (grunt) {
+  'use strict';
+  
   var data = grunt.file.readJSON('app/project.json');
 
   grunt.registerTask('templateBower', function () {

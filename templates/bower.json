@@ -15,16 +15,14 @@
   ],
   "dependencies": {
     <%= projectDependencies %>
+    "less": "*",
     "jquery": "~1",
     "angular": "~1.2",
     "angular-ui-router": "*",
-    "less": "*",
     "html5shiv": "*",
     "es5-shim": "*",
     "respond": "*",
-    "console-polyfill": "*",
-    "almond": "*",
-    "requirejs": "*"
+    "console-polyfill": "*"
   },
   "overrides": <%= projectOverrides %>
 }

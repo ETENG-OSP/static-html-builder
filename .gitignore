@@ -4,6 +4,6 @@ bower_components
 dist
 
 bower.json
-!framework/bower.json
+!templates/bower.json
 
 .directory

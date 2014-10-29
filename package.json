@@ -5,7 +5,6 @@
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "*",
-    "grunt-contrib-jshint": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-connect": "*",
@@ -15,7 +14,6 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-include-source": "*",
-    "grunt-lineending": "*",
     "grunt-usemin": "*",
     "grunt-wiredep": "*",
     "load-grunt-tasks": "*",

@@ -1,24 +1,15 @@
 module.exports = function (grunt) {
   'use strict';
-  
+
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
-
-  grunt.initConfig({
-    config: require('./config/config'),
-    jshint: require('./config/jshint'),
-    lineending: require('./config/lineending'),
-    connect: require('./config/connect'),
-    useminPrepare: require('./config/usemin-prepare'),
-    usemin: require('./config/usemin'),
-    includeSource: require('./config/include-source'),
-    wiredep: require('./config/wiredep'),
-    watch: require('./config/watch'),
-    less: require('./config/less'),
-    copy: require('./config/copy'),
-    clean: require('./config/clean')
+  grunt.config('config', {
+    app: 'app',
+    framework: 'framework',
+    dist: 'dist',
+    temp: '.tmp',
+    generated: '.tmp/generated'
   });
-
 
   grunt.registerTask('build', [
     'clean',
@@ -43,13 +34,10 @@ module.exports = function (grunt) {
     'includeSource',
     'templateBower',
     'wiredep',
-    'lineending',
-    'copy:favicon',
     'templateAngular'
   ]);
 
   grunt.registerTask('serve', [
-    'jshint',
     'prepareHtml',
     'connect:dev',
     'watch'
