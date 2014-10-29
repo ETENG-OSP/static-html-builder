@@ -1,6 +1,6 @@
-var path = require('path');
-
 module.exports = function (grunt) {
+  var a = require('../lib/grunt/usemin-flow-less');
+  console.log(a);
 
   grunt.config('useminPrepare', {
 
@@ -10,12 +10,12 @@ module.exports = function (grunt) {
         steps: {
           js: ['concat', 'uglifyjs'],
           css: ['concat', 'cssmin'],
-          less: [require('../lib/grunt/usemin-prepare-less')],
+          less: [require('../lib/grunt/usemin-flow-less')],
         },
         post: {}
       }
     }
-    
+
   });
 
 };

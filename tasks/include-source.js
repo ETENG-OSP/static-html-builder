@@ -4,7 +4,8 @@ module.exports = function (grunt) {
 
     options: {
       basePath: '<%= config.app %>',
-      baseUrl: '<%= config.app %>'
+      baseUrl: '<%= config.app %>',
+      ordering: 'top-down'
     },
 
     scripts: {
@@ -18,7 +19,7 @@ module.exports = function (grunt) {
         '<%= config.generated %>/app.less': '<%= config.framework %>/app.less'
       }
     }
-    
+
   });
 
 };

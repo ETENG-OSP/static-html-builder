@@ -1,10 +1,13 @@
+var bowerPath = 'templates/bower.json';
+var appPath = 'templates/app.js';
+
 module.exports = function (grunt) {
   'use strict';
-  
+
   var data = grunt.file.readJSON('app/project.json');
 
   grunt.registerTask('templateBower', function () {
-    var bowerTemplate = grunt.file.read('framework/bower.json');
+    var bowerTemplate = grunt.file.read(bowerPath);
     var projectDependencies = '';
     Object.keys(data.bowerDependencies).forEach(function (key) {
       projectDependencies += '"' + key + '": "'+ data.bowerDependencies[key] +'",';
@@ -19,7 +22,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('templateAngular', function () {
-    var appTemplate = grunt.file.read('framework/app.js');
+    var appTemplate = grunt.file.read(appPath);
     var projectDependencies = '';
 
     data.angularModules.forEach(function (moduleName) {

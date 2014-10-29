@@ -10,14 +10,8 @@ module.exports = function (grunt) {
     stylesheets: {
       files: '<%= config.app %>/**/*.less',
       tasks: ['includeSource:stylesheets']
-    },
-
-    dev: {
-      files: '<%= config.app %>/**/*.*',
-      options: {
-        livereload: true
-      }
     }
-    
+
   });
+  
 };

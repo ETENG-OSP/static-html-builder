@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   grunt.loadTasks('tasks');
   grunt.config('config', {
     app: 'app',
-    framework: 'framework',
+    framework: 'templates',
     dist: 'dist',
     temp: '.tmp',
     generated: '.tmp/generated'
@@ -14,7 +14,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'prepareHtml',
-    'copy',
+    'copy:app',
+    'copy:framework',
     'useminPrepare',
     'generated',
     'usemin'
@@ -24,22 +25,30 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
-    'copy:less',
-    'less',
-    'clean:less'
+    'less'
   ]);
 
   grunt.registerTask('prepareHtml', [
     'copy:prepareHtml',
-    'includeSource',
     'templateBower',
     'wiredep',
-    'templateAngular'
+    'templateAngular',
+    'includeSource',
+  ]);
+
+  grunt.registerTask('init', [
+    'clean',
+    'copy:prepareHtml',
+    'templateBower',
+    'bowerInstall',
+    'wiredep',
+    'templateAngular',
+    'includeSource'
   ]);
 
   grunt.registerTask('serve', [
     'prepareHtml',
-    'connect:dev',
+    'startServer',
     'watch'
   ]);
 

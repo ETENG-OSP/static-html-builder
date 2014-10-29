@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 
   grunt.config('wiredep', {
 
-    inject: {
+    prepareHtml: {
       src: ['<%= config.generated %>/index.html'],
       options: {
         ignorePath: '../../'

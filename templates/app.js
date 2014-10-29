@@ -1,1 +1,4 @@
-angular.module('app', [<%= projectDependencies %>, 'ui.router']);
+angular.module('app', [
+  <%= projectDependencies %>
+  'ui.router'
+]);
