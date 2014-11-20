@@ -5,7 +5,8 @@
   "main": "Gruntfile.js",
   "dependencies": {
     "express": "^4.10.0",
-    "http-proxy": "^1.5.3"
+    "http-proxy": "^1.5.3",
+    "q": "^1.0.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

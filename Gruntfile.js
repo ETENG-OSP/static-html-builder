@@ -36,11 +36,15 @@ module.exports = function (grunt) {
     'includeSource',
   ]);
 
+  grunt.registerTask('prepareBower', [
+    'templateBower',
+    'bowerInstall'
+  ]);
+
   grunt.registerTask('init', [
     'clean',
     'copy:prepareHtml',
-    'templateBower',
-    'bowerInstall',
+    'prepareBower',
     'wiredep',
     'templateAngular',
     'includeSource'
@@ -48,8 +52,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', [
     'prepareHtml',
-    'startServer',
-    'watch'
+    'startServer'
   ]);
 
   grunt.registerTask('default', ['serve']);
