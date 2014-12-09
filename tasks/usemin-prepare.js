@@ -25,10 +25,12 @@ module.exports = function (grunt) {
                   sourceMapFilename: '<%= config.dist %>/' + block.dest + '.map'
                 };
                 return {
-                  src: '<%= config.app %>/' + file,
+                  src: '<%= config.generated %>/' + file,
                   dest: '<%= config.dist %>/' + block.dest
                 };
               });
+
+              console.log(options);
 
               return options;
             }

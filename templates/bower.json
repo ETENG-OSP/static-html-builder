@@ -17,12 +17,15 @@
     <%= projectDependencies %>
     "less": "^2",
     "jquery": "^1",
-    "angular": "~1.2",
     "angular-route": "~1.2",
     "html5shiv": "*",
     "es5-shim": "*",
     "respond": "*",
     "console-polyfill": "*"
+  },
+  "resolutions": {
+    "jquery": "^1",
+    "angular": "~1.2"
   },
   "overrides": <%= projectOverrides %>
 }

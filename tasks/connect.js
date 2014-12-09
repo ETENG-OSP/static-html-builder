@@ -32,11 +32,11 @@ module.exports = function (grunt) {
             connect.static(config.generated)
           ];
 
-          Object.keys(project.proxy).forEach(function (pathname) {
+          Object.keys(project.proxies).forEach(function (pathname) {
             app.use(pathname, function (req, res) {
               console.log('proxy: %s', req.url);
               proxy.web(req, res, {
-                target: project.proxy[pathname] + pathname
+                target: project.proxies[pathname] + pathname
               }, function (e) {
                 res.statusCode = 500;
                 res.end();

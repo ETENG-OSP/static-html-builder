@@ -16,6 +16,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean',
+    'prepareBower',
     'prepareHtml',
     'copy:app',
     'copy:framework',
@@ -33,15 +34,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask('prepareHtml', [
     'copy:prepareHtml',
-    'templateBower',
-    'wiredep',
     'templateAngular',
     'includeSource'
   ]);
 
   grunt.registerTask('prepareBower', [
     'templateBower',
-    'bowerInstall'
+    'wiredep'
   ]);
 
   grunt.registerTask('serve', [
@@ -53,11 +52,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('init', [
     'clean',
-    'copy:prepareHtml',
-    'prepareBower',
+    'templateBower',
+    'bowerInit',
     'wiredep',
-    'templateAngular',
-    'includeSource'
+    'prepareHtml'
   ]);
 
   grunt.registerTask('default', ['serve']);
