@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
+  'use strict';
   var data = grunt.file.readJSON('app/project.json');
-
+  
   grunt.registerTask('templateBower', function () {
     var bowerTemplate = grunt.file.read('framework/bower.json');
     var projectDependencies = '';

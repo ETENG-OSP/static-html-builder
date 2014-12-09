@@ -1,12 +1,8 @@
 {
   "angularModules": [
-    "ngAnimate",
-    "demo"
   ],
 
   "bowerDependencies": {
-    "bootstrap": "*",
-    "angular-animate": "*"
   },
 
   "bowerOverrides": {
