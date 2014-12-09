@@ -1,0 +1,15 @@
+{
+  "angularModules": [
+  ],
+
+  "bowerDependencies": {
+  },
+
+  "bowerOverrides": {
+  },
+
+  "proxy": {
+    "/api": "http://localhost:8080",
+    "/servlet": "http://localhost:8080"
+  }
+}

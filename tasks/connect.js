@@ -1,8 +1,12 @@
 var httpProxy = require('http-proxy');
-var config = require('./config');
 var project = require('../app/project');
 
 var proxy = httpProxy.createProxyServer();
+
+var config = {
+  app: 'app',
+  generated: '.tmp/generated'
+};
 
 module.exports = function (grunt) {
 

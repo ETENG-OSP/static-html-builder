@@ -2,14 +2,17 @@ module.exports = function (grunt) {
   'use strict';
 
   require('load-grunt-tasks')(grunt);
-  grunt.loadTasks('tasks');
-  grunt.config('config', {
-    app: 'app',
-    framework: 'templates',
-    dist: 'dist',
-    temp: '.tmp',
-    generated: '.tmp/generated'
+
+  grunt.initConfig({
+    config: {
+      app: 'app',
+      generated: '.tmp/generated',
+      dist: 'dist',
+      temp: '.tmp',
+      framework: 'templates'
+    },
   });
+  grunt.loadTasks('tasks');
 
   grunt.registerTask('build', [
     'clean',
@@ -33,12 +36,19 @@ module.exports = function (grunt) {
     'templateBower',
     'wiredep',
     'templateAngular',
-    'includeSource',
+    'includeSource'
   ]);
 
   grunt.registerTask('prepareBower', [
     'templateBower',
     'bowerInstall'
+  ]);
+
+  grunt.registerTask('serve', [
+    // 'jshint',
+    'prepareHtml',
+    'connect:dev',
+    'watch'
   ]);
 
   grunt.registerTask('init', [
@@ -48,11 +58,6 @@ module.exports = function (grunt) {
     'wiredep',
     'templateAngular',
     'includeSource'
-  ]);
-
-  grunt.registerTask('serve', [
-    'prepareHtml',
-    'startServer'
   ]);
 
   grunt.registerTask('default', ['serve']);
