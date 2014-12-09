@@ -4,7 +4,9 @@ module.exports = function (grunt) {
     html: '<%= config.dist %>/**/*.html',
     options: {
       blockReplacements: {
-        less: require('../lib/grunt/usemin-block-replacements-less.js')
+        less: function (block) {
+          return '<link rel="stylesheet" href="' + block.dest + '">';
+        }
       }
     }
   });

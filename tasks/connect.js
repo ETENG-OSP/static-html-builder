@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 
   grunt.config('connect', {
     options: {
-      port: 3000
+      port: 9000
     },
     dist: {
       options: {
