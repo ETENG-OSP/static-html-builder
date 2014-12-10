@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="appModule">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,12 +23,13 @@
 
   <!-- build:less css/app.css -->
   <link href="app.less" rel="stylesheet/less">
-  <script src="bower_components/less/dist/less.js"></script>
   <!-- endbuild -->
 
+  <!-- build:remove -->
+  <script src="bower_components/less/dist/less.js"></script>
+  <!-- endbuild -->
 </head>
 <body>
-
   <div ng-view></div>
 
   <!-- build:js(.) js/vendor.js -->
@@ -41,6 +42,5 @@
   <script src="app.js"></script>
   <!-- include: "type": "js", "files": ["**/*.js", "!**/*.urgent.js"] -->
   <!-- endbuild -->
-
 </body>
 </html>

@@ -14,9 +14,10 @@
     "tests"
   ],
   "dependencies": {
-    <%= projectDependencies %>
+    <% _.each(bowerDependencies, function (version, packageName) { %>
+    "<%= packageName %>": "<%= version %>",
+    <% }); %>
     "less": "^2",
-    "jquery": "^1",
     "angular-route": "~1.2",
     "html5shiv": "*",
     "es5-shim": "*",
@@ -27,5 +28,11 @@
     "jquery": "^1",
     "angular": "~1.2"
   },
-  "overrides": <%= projectOverrides %>
+  "overrides": {
+    <% _.each(bowerOverrides, function (override, packageName) { %>
+    "<%= packageName %>": {
+      "main": <%= JSON.stringify(override) %>
+    }<% if (packageName !== _.last(_.keys(bowerOverrides))) { %>,<% } %>
+    <% }); %>
+  }
 }
