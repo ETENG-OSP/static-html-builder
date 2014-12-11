@@ -16,13 +16,13 @@ module.exports = function (grunt) {
     },
 
     framework: {
-      src: "<%= config.generated %>/index.html",
+      src: "<%= config.generated %>/index-framework.html",
       dest: "<%= config.dist %>/index.html"
     },
 
     prepareHtml: {
-      src: '<%= config.framework %>/index.html',
-      dest: '<%= config.generated %>/index.html'
+      src: '<%= config.framework %>/index-framework.html',
+      dest: '<%= config.generated %>/index-framework.html'
     }
 
   });

@@ -1,6 +1,4 @@
 var httpProxy = require('http-proxy');
-var project = require('../app/project');
-
 var proxy = httpProxy.createProxyServer();
 
 var config = {
@@ -18,18 +16,35 @@ module.exports = function (grunt) {
       options: {
         hostname: '*',
         base: '<%= config.dist %>',
-        keepalive: true
+        keepalive: true,
+        index: 'index-framework.html'
       }
     },
     dev: {
       options: {
         livereload: true,
         middleware: function (connect) {
+          var project = grunt.file.readJSON('app/project.json');
           var app = connect();
           var middlewares = [
             app.use('/bower_components', connect.static('bower_components')),
-            connect.static(config.app),
-            connect.static(config.generated)
+            app.use('/tutorial', connect.static('tutorial')),
+            function (req, res, next) {
+              if (project.tutorial) {
+                res.writeHead(302, {
+                  'Location': '/tutorial'
+                });
+                res.end();
+                return;
+              }
+              next();
+            },
+            connect.static(config.app, {
+              index: 'index-framework.html'
+            }),
+            connect.static(config.generated, {
+              index: 'index-framework.html'
+            })
           ];
 
           Object.keys(project.proxies).forEach(function (pathname) {

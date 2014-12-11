@@ -10,13 +10,13 @@ module.exports = function (grunt) {
 
     scripts: {
       files: {
-        '<%= config.generated %>/index.html': '<%= config.generated %>/index.html'
+        '<%= config.generated %>/index-framework.html': '<%= config.generated %>/index-framework.html'
       }
     },
 
     stylesheets: {
       files: {
-        '<%= config.generated %>/app.less': '<%= config.framework %>/app.less'
+        '<%= config.generated %>/app-framework.less': '<%= config.framework %>/app-framework.less'
       }
     }
 

@@ -34,6 +34,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('prepareHtml', [
     'copy:prepareHtml',
+    'generateProject',
     'templateAngular',
     'includeSource'
   ]);
@@ -53,6 +54,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('init', [
     'clean',
+    'generateProject',
     'prepareHtml',
     'templateBower',
     'bowerInit',
