@@ -23,5 +23,4 @@ static-html-builder
 git clone https://github.com/gengen1988/static-html-builder.git
 cd static-html-builder
 npm install
-bower install
 ```
