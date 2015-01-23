@@ -1,93 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <style>
-  .header {
-    margin-bottom: 0;
-  }
-  </style>
+  <link rel="stylesheet" href="vendor/normalize.css">
+  <link rel="stylesheet" href="vendor/arta.css">
+  <link rel="stylesheet/less" href="style.less">
+
+  <script src="vendor/highlight.pack.js"></script>
+  <script src="vendor/marked.js"></script>
+  <script src="vendor/react.js"></script>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/less.js"></script>
 </head>
 <body>
 
-  <div class="jumbotron header">
-    <div class="container">
-      <h1>欢迎使用 Static HTML Builder</h1>
-      <p>Static HTML Builder（以下简称 SHB）是一套用来建立单页面应用的工具。它可以简化开发流程，同时自动优化页面。</p>
+  <header class="header-layout">
+    <h1 class="brand-layout">Static HTML Builder</h1>
+    <nav class="navbar-layout">
+      <a href="#">文档</a>
+      <a href="#">下载</a>
+      <a href="#">例子</a>
+      <a href="#">源码</a>
+      <a href="#">API</a>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+    <div class="sidebar-layout sidebar">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#">建立我的第一个应用</a>
+          <ul>
+            <li><a href="#">建立模块</a></li>
+            <li><a href="#">建立路由</a></li>
+            <li><a href="#">建立页面</a></li>
+            <li><a href="#">建立控制器</a></li>
+            <li><a href="#">建立服务</a></li>
+            <li><a href="#">美化</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">升级指南</a>
+          <ul></ul>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="navbar navbar-default navbar-inverse navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand">SHB</a>
+    <div class="main-layout">
+      <div class="container">
+        <div id="content"></div>
       </div>
-      <ul class="nav navbar-nav">
-        <li><a>开始使用</a></li>
-        <li><a>更新指南</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">结束教程</a></li>
-      </ul>
     </div>
   </div>
 
-
-  <div class="container">
-    <h2>目录</h2>
-    <ul>
-      <li>建立我的第一个应用</li>
-      <li>升级指南</li>
-    </ul>
-
-    <h2>建立我的第一个应用</h2>
-    <ul>
-      <li>建立模块</li>
-      <li>建立路由</li>
-      <li>建立页面</li>
-      <li>建立控制器</li>
-      <li>建立服务</li>
-      <li>美化</li>
-    </ul>
-
-    <h3>建立模块</h3>
-    <p>模块是应用的组成部分。</p>
-    <p>新建一个文件，命名为 app.urgent.js。<code>urgent</code> 是 SHB 的一个特殊符号，代表最早加载的 js 文件。在 app.urgent.js 中，编写以下代码：</p>
-    <pre><code>angular.module('app', []);</code></pre>
-    <p>编辑文件 project.json，在 angularModule 字段中加入 "app"，如下：</p>
-    <pre><code>{
-  "bowerDependencies": {},
-  "bowerOverrides": {},
-  "angularModules": [
-    "app"
-  ],
-  "proxies": {},
-  "tutorial": true
-}</code></pre>
-    <p>这样就建立了一个名为 app 的模块。接下来的教程均会以该模块为例进行说明。在实际环境中，开发者需要自行决定模块的名称与依赖。</p>
-
-    <h3>建立路由</h3>
-    <p>使用路由来建立 url 与页面的对应关系。</p>
-    <p>修改 app.urgent.js，加入路由模块与相应的配置：</p>
-    <pre><code>angular.module('app', ['ngRoute']).config([
-  '$routeProvider',
-
-function ($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'root.html'
-  });
-}]);</code></pre>
-    <p>这样就建立了一个路由关系：当用户访问网站的根目录时，系统会加载 root.html 作为页面的展示部分。</p>
-
-    <h3>建立页面</h3>
-    <p>单页面应用使用 HTML 片段进行开发。编写代码时无需编写 head 或引入额外的 script。下面是 root.html 的例子：</p>
-    <pre><code>&lt;h1&gt;你好世界&lt;/h1&gt;
-&lt;p&gt;这是我的第一个应用&lt;/p&gt;</code></pre>
-
-    <h3>建立控制器</h3>
-    <p>待补充</p>
-
-    <h2>升级指南</h2>
-    <p>待补充</p>
-  </div>
+  <script src="app.js"></script>
 </body>
 </html>

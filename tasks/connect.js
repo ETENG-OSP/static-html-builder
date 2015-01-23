@@ -34,8 +34,7 @@ module.exports = function (grunt) {
                 res.writeHead(302, {
                   'Location': '/tutorial'
                 });
-                res.end();
-                return;
+                return res.end();
               }
               next();
             },
