@@ -30,8 +30,6 @@ module.exports = function (grunt) {
                 };
               });
 
-              console.log(options);
-
               return options;
             }
           }],

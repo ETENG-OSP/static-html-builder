@@ -1,15 +1,21 @@
 var bowerPath = 'templates/bower.json';
 var appPath = 'templates/app-framework.js';
+var htmlPath = 'templates/index-framework.html';
 
 module.exports = function (grunt) {
   'use strict';
 
   var project = {
-    bowerDependencies: {},
-    bowerOverrides: {},
-    angularModules: [],
-    proxies: {},
-    tutorial: true
+    main: 'app',
+    dependencies: {
+      'angular-route': '~1.2'
+    },
+    overrides: {
+      marked: 'lib/marked.js'
+    },
+    proxies: {
+      '/api': 'http://localhost:8080'
+    }
   };
 
   grunt.registerTask('templateBower', function () {
@@ -20,12 +26,14 @@ module.exports = function (grunt) {
     grunt.file.write('bower.json', bower);
   });
 
-  grunt.registerTask('templateAngular', function () {
-    var appTemplate = grunt.file.read(appPath);
-    var app = grunt.template.process(appTemplate, {
-      data: project
-    });
-    grunt.file.write('.tmp/generated/app-framework.js', app);
+  grunt.registerTask('templateHtml', function () {
+    grunt.file.write(
+      '.tmp/generated/index-framework.html',
+      grunt.template.process(
+        grunt.file.read(htmlPath),
+        { data: project }
+      )
+    );
   });
 
   grunt.registerTask('generateProject', function () {

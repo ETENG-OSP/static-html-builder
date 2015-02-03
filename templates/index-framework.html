@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="appFramework">
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="<%= main %>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
   <!-- endbuild -->
 
   <!-- build:less css/app.css -->
-  <link href="app-framework.less" rel="stylesheet/less">
+  <link rel="stylesheet/less" href="app-framework.less" />
   <!-- endbuild -->
 
   <!-- build:remove -->
@@ -39,7 +39,6 @@
 
   <!-- build:js({app,.tmp/generated}) js/app.js -->
   <!-- include: "type": "js", "files": "**/*.urgent.js" -->
-  <script src="app-framework.js"></script>
   <!-- include: "type": "js", "files": ["**/*.js", "!**/*.urgent.js"] -->
   <!-- endbuild -->
 </body>

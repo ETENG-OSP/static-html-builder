@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "build angular SPA",
   "main": "Gruntfile.js",
   "dependencies": {
@@ -17,7 +17,7 @@
     "grunt-include-source": "^0.4.5",
     "grunt-usemin": "^2.6.2",
     "grunt-wiredep": "^2.0.0",
-    "http-proxy": "^1.7.2",
+    "http-proxy": "^1.8.1",
     "load-grunt-tasks": "^1.0.0",
     "q": "^1.1.2"
   },

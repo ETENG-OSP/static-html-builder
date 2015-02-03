@@ -33,9 +33,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('prepareHtml', [
-    'copy:prepareHtml',
+    'templateHtml',
     'generateProject',
-    'templateAngular',
     'includeSource'
   ]);
 
