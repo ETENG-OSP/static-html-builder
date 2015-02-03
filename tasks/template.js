@@ -6,6 +6,7 @@ module.exports = function (grunt) {
   'use strict';
 
   var project = {
+    name: 'Static HTML App',
     main: 'app',
     dependencies: {
       'angular-route': '~1.2'
