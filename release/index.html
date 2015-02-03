@@ -122,8 +122,17 @@
 <h1 id="_1">版本历史</h1>
 <h2 id="301">3.0.1</h2>
 <ul>
-<li>加入 mkdocs 文档</li>
-<li>移除对 ngRoute 的引用，允许自由选用 ngRoute / ui.router</li>
+<li>加入 mkdocs 文档，在线文档地址为 http://gengen1988.github.io/static-html-builder/</li>
+<li>移除对 ngRoute 的引用，允许自由选用路由模块</li>
+<li>加入对 ui.router 的支持</li>
+<li>project.json 中，加入 main，用于指定入口模块</li>
+<li>project.json 中，加入 name，用于指定 HTML title</li>
+<li>project.json 中，bowerDependencies 更名为 dependencies</li>
+<li>project.json 中，bowerOverrides 更名为 overrides</li>
+<li>project.json 中，移除 angularModules，将 Angular 依赖放入应用中配置</li>
+<li>project.json 中，移除 tutorial，使用 docs 代替</li>
+<li>project.json 中，加入默认配置项</li>
+<li>重构 grunt tasks，移除未使用的任务</li>
 </ul>
 </div>
             
