@@ -1,6 +1,14 @@
 # 版本历史
 
-## 3.0.1
+## 3.0.2 (...)
+
+- 修正 project.json 无法修改 HTML 内容问题
+- 修正 grunt install 无法运行问题
+- 修正 less 中 url 引用的路径问题
+- 升级 angular 到 1.3.x
+- 移除内置的 tutorial
+
+## 3.0.1 (2015-02-03)
 
 - 加入 mkdocs 文档，在线文档地址为 http://gengen1988.github.io/static-html-builder/
 - 移除对 ngRoute 的引用，允许自由选用路由模块

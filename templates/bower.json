@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "homepage": "https://github.com/gengen1988/static-html-builder",
   "authors": [
     "Gen Liu <gerald_721@hotmail.com>"
@@ -18,15 +18,14 @@
     "<%= packageName %>": "<%= version %>",
     <% }); %>
     "less": "^2",
-    "angular": "~1.2",
+    "angular": "~1.3",
     "html5shiv": "*",
     "es5-shim": "*",
     "respond": "*",
     "console-polyfill": "*"
   },
   "resolutions": {
-    "angular-route": "~1.2",
-    "angular": "~1.2"
+    "angular": "~1.3"
   },
   "overrides": {
     <% _.each(overrides, function (override, packageName) { %>

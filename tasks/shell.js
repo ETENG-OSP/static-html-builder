@@ -55,7 +55,7 @@ module.exports = function (grunt) {
       install(packageName)
     ]).spread(function (raw) {
       var project = JSON.parse(raw.toString());
-      project.bowerDependencies[packageName] = '*';
+      project.dependencies[packageName] = '*';
       return writeProject(JSON.stringify(project, null, 2));
 
     }).then(function () {

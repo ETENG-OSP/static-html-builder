@@ -5,19 +5,26 @@ var htmlPath = 'templates/index-framework.html';
 module.exports = function (grunt) {
   'use strict';
 
-  var project = {
-    name: 'Static HTML App',
-    main: 'app',
-    dependencies: {
-      'angular-route': '~1.2'
-    },
-    overrides: {
-      marked: 'lib/marked.js'
-    },
-    proxies: {
-      '/api': 'http://localhost:8080'
-    }
-  };
+  var project;
+
+  try {
+    project = grunt.file.readJSON('app/project.json');
+  } catch (e) {
+    project = {
+     name: 'Static HTML App',
+     main: 'app',
+     dependencies: {
+       'angular-route': '~1.3'
+     },
+     overrides: {
+       marked: 'lib/marked.js'
+     },
+     proxies: {
+       '/api': 'http://localhost:8080'
+     }
+   };
+  }
+
 
   grunt.registerTask('templateBower', function () {
     var bowerTemplate = grunt.file.read(bowerPath);
