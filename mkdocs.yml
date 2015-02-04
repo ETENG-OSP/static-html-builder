@@ -7,3 +7,5 @@ pages:
   - [release.md, 版本历史]
 
 repo_url: https://github.com/gengen1988/static-html-builder
+
+google_analytics: ['UA-xxxxxxxx-x', 'hostname']

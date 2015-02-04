@@ -6,6 +6,7 @@ module.exports = function (grunt) {
       sourceMap: true,
       outputSourceFiles: true,
       compress: true,
+      rootpath: '../',
       ieCompat: true
     }
   });

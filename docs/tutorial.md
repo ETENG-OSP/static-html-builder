@@ -19,18 +19,23 @@
 })();
 ```
 
-编辑文件 `project.json`，在 `angularModule` 字段中加入 "app"，如下：
+编辑文件 `project.json`，在 `main` 字段中指定入口模块 `app`。
 
 ```json
 {
-  "bowerDependencies": {},
-  "bowerOverrides": {},
-  "angularModules": [
-    "app"
-  ],
-  "proxies": {},
-  "tutorial": true
+  "name": "Static HTML App",
+  "main": "app",
+  "dependencies": {
+    "angular-route": "~1.2"
+  },
+  "overrides": {
+    "marked": "lib/marked.js"
+  },
+  "proxies": {
+    "/api": "http://localhost:8080"
+  }
 }
+
 ```
 
 这样就建立了一个名为 `app` 的模块。接下来的教程均会以该模块为例进行说明。在实际环境中，开发者需要自行决定模块的名称与依赖。

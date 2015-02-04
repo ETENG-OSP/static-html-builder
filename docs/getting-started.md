@@ -13,12 +13,13 @@ npm install
 文件结构说明
 --------
 
-目录名           | 介绍
+目录名            | 介绍
 ---------------- | --------------
 app              | 项目目录
 bower_components | bower 存放路径
 dist             | 编译后文件的存放路径
 tasks            | grunt 任务配置
+docs             | 文档
 
 
 如何引入第三方依赖
