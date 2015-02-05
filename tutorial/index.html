@@ -23,6 +23,16 @@
         <![endif]-->
 
         
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-xxxxxxxx-x', 'hostname');
+            ga('send', 'pageview');
+        </script>
+        
     </head>
 
     <body>
@@ -67,6 +77,12 @@
                 
                     <li >
                         <a href="../release">版本历史</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cordova">cordova打包帮助</a>
                     </li>
                 
                 
@@ -143,16 +159,21 @@
 })();
 </code></pre>
 
-<p>编辑文件 <code>project.json</code>，在 <code>angularModule</code> 字段中加入 "app"，如下：</p>
+<p>编辑文件 <code>project.json</code>，在 <code>main</code> 字段中指定入口模块 <code>app</code>。</p>
 <pre><code class="json">{
-  &quot;bowerDependencies&quot;: {},
-  &quot;bowerOverrides&quot;: {},
-  &quot;angularModules&quot;: [
-    &quot;app&quot;
-  ],
-  &quot;proxies&quot;: {},
-  &quot;tutorial&quot;: true
+  &quot;name&quot;: &quot;Static HTML App&quot;,
+  &quot;main&quot;: &quot;app&quot;,
+  &quot;dependencies&quot;: {
+    &quot;angular-route&quot;: &quot;~1.2&quot;
+  },
+  &quot;overrides&quot;: {
+    &quot;marked&quot;: &quot;lib/marked.js&quot;
+  },
+  &quot;proxies&quot;: {
+    &quot;/api&quot;: &quot;http://localhost:8080&quot;
+  }
 }
+
 </code></pre>
 
 <p>这样就建立了一个名为 <code>app</code> 的模块。接下来的教程均会以该模块为例进行说明。在实际环境中，开发者需要自行决定模块的名称与依赖。</p>
