@@ -142,6 +142,8 @@
         
             <li><a href="#_7">限制路由访问</a></li>
         
+            <li><a href="#directive-view">使用 Directive 封装 View 组件</a></li>
+        
     
     </ul>
 </div></div>
@@ -322,6 +324,50 @@
     return deferred.promise;
   }
 })();
+</code></pre>
+
+<h2 id="directive-view">使用 Directive 封装 View 组件</h2>
+<p>directive 通常有两个作用：</p>
+<ol>
+<li>将一系列的 html 与行为封装成一个标签；</li>
+<li>适配其他框架的初始化代码；</li>
+</ol>
+<p>定义 directive</p>
+<pre><code class="javascript">// file: app/list.js
+
+(function () {
+  angular.module('app').directive('list', list);
+
+  list.$inject = ['$http'];
+
+  function list($http) {
+    return {
+      template: [
+        '&lt;ul&gt;',
+          '&lt;li ng-repeat=&quot;item in items&quot;&gt;{{item.text}}&lt;/li&gt;',
+        '&lt;/ul&gt;'
+      ].join(''),
+      link: function (scope, element, attrs) {
+        $http.get(attrs.source).success(function (result) {
+          scope.items = result;
+        });
+      }
+    }
+  }
+})();
+</code></pre>
+
+<p>使用 directive</p>
+<pre><code class="html">&lt;h1&gt;这是 directive 例子&lt;/h1&gt;
+&lt;list data-source=&quot;/raw/list.json&quot;&gt;&lt;/list&gt;
+</code></pre>
+
+<p>上面例子的数据</p>
+<pre><code class="json">[
+  {&quot;text&quot;: &quot;foo&quot;},
+  {&quot;text&quot;: &quot;bar&quot;},
+  {&quot;text&quot;: &quot;baz&quot;}
+]
 </code></pre>
 
 </div>
