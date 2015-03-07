@@ -33,7 +33,7 @@ Linux：
 ln -s link target
 ```
 
-如何引入第三方依赖
+引入第三方依赖
 -----
 
 ```bash
