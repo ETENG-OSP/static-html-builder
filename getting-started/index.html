@@ -132,9 +132,11 @@
         
             <li><a href="#_3">文件结构说明</a></li>
         
-            <li><a href="#_4">如何引入第三方依赖</a></li>
+            <li><a href="#_4">符号链接创建方法</a></li>
         
-            <li><a href="#_5">升级指南</a></li>
+            <li><a href="#_5">引入第三方依赖</a></li>
+        
+            <li><a href="#_6">升级指南</a></li>
         
     
     </ul>
@@ -159,7 +161,7 @@ npm install
 <tbody>
 <tr>
 <td>app</td>
-<td>项目目录</td>
+<td>项目目录，推荐使用符号链接将实际项目链接到该目录</td>
 </tr>
 <tr>
 <td>bower_components</td>
@@ -179,11 +181,21 @@ npm install
 </tr>
 </tbody>
 </table>
-<h2 id="_4">如何引入第三方依赖</h2>
+<h2 id="_4">符号链接创建方法</h2>
+<p>linux</p>
+<pre><code class="bash">ln -s source target
+</code></pre>
+
+<p>windows</p>
+<pre><code class="bash">mklink -j target source
+</code></pre>
+
+<p>app 目录</p>
+<h2 id="_5">引入第三方依赖</h2>
 <pre><code class="bash">bower install &lt;包名&gt;
 </code></pre>
 
-<h2 id="_5">升级指南</h2>
+<h2 id="_6">升级指南</h2>
 <p>待补充</p>
 </div>
             
