@@ -10,19 +10,33 @@ cd static-html-builder
 npm install
 ```
 
-文件结构说明
---------
+## 文件结构说明
+
 
 目录名            | 介绍
 ---------------- | --------------
-app              | 项目目录
+app              | 项目目录，推荐使用符号链接将项目放到这个位置
 bower_components | bower 存放路径
 dist             | 编译后文件的存放路径
 tasks            | grunt 任务配置
 docs             | 文档
 
+## 符号链接创建方法
 
-如何引入第三方依赖
+linux
+```bash
+ln -s source target
+```
+
+windows
+```bash
+mklink -j target source
+```
+
+app 目录
+
+
+引入第三方依赖
 -----
 
 ```bash

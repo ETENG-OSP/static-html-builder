@@ -186,8 +186,7 @@
 })();
 ```
 
-限制路由访问
------------
+## 限制路由访问
 
 使用 resolve 配置路由是否成功，如果返回一个失败的 promise，则路由失败。
 
@@ -215,4 +214,52 @@
     return deferred.promise;
   }
 })();
+```
+
+## 使用 Directive 封装 View 组件
+
+directive 通常有两个作用：
+
+1. 将一系列的 html 与行为封装成一个标签；
+2. 适配其他框架的初始化代码；
+
+定义 directive
+```javascript
+// file: app/list.js
+
+(function () {
+  angular.module('app').directive('list', list);
+
+  list.$inject = ['$http'];
+
+  function list($http) {
+    return {
+      template: [
+        '<ul>',
+          '<li ng-repeat="item in items">{{item.text}}</li>',
+        '</ul>'
+      ].join(''),
+      link: function (scope, element, attrs) {
+        $http.get(attrs.source).success(function (result) {
+          scope.items = result;
+        });
+      }
+    }
+  }
+})();
+```
+
+使用 directive
+```html
+<h1>这是 directive 例子</h1>
+<list data-source="/raw/list.json"></list>
+```
+
+上面例子的数据
+```json
+[
+  {"text": "foo"},
+  {"text": "bar"},
+  {"text": "baz"}
+]
 ```
