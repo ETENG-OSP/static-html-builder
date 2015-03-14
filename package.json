@@ -1,6 +1,6 @@
 {
   "name": "static-html-builder",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "build angular SPA",
   "main": "Gruntfile.js",
   "dependencies": {
