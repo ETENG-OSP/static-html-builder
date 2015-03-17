@@ -1,5 +1,12 @@
 # 版本历史
 
+## latest
+- 加入 ng-annotate，允许使用 @ngInject 自动注入依赖
+- 升级 grunt-contrib-concat 到 0.5.1
+- 升级 http-proxy 到 1.9.0
+- 升级 q 到 1.2.0
+- 去除内置 tutorial 文档支持代码
+
 ## 3.0.3 2015-03-14
 - 修正路由切换后滚动条未重置的问题
 
@@ -10,6 +17,7 @@
 - 修正 less 中 url 引用的路径问题
 - 升级 angular 到 1.3.x
 - 移除内置的 tutorial
+- 精简
 
 ## 3.0.1 2015-02-03
 

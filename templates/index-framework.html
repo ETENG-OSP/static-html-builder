@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="<%= main %>">
+<html xmlns:ng="http://angularjs.org">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
   <script src="bower_components/less/dist/less.js"></script>
   <!-- endbuild -->
 </head>
-<body>
+<body ng-app="<%= main %>">
   <ng-view autoscroll></ng-view>
   <ui-view autoscroll></ui-view>
 

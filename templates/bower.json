@@ -17,15 +17,15 @@
     <% _.each(dependencies, function (version, packageName) { %>
     "<%= packageName %>": "<%= version %>",
     <% }); %>
-    "less": "^2",
-    "angular": "~1.3",
+    "less": "^2.0.0",
+    "angular": "~1.3.0",
     "html5shiv": "*",
     "es5-shim": "*",
     "respond": "*",
     "console-polyfill": "*"
   },
   "resolutions": {
-    "angular": "~1.3"
+    "angular": "~1.3.0"
   },
   "overrides": {
     <% _.each(overrides, function (override, packageName) { %>
