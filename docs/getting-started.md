@@ -30,7 +30,7 @@ ln -s source target
 
 windows
 ```bash
-mklink -j target source
+mklink /j target source
 ```
 
 app 目录
@@ -46,4 +46,6 @@ bower install <包名>
 升级指南
 -------
 
-待补充
+```bash
+git pull
+```
