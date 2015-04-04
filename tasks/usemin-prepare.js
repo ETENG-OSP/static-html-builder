@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         steps: {
           js: ['concat', 'uglifyjs'],
           css: ['concat', 'cssmin'],
-          less: [less],
+          less: [less]
         },
         post: {}
       }

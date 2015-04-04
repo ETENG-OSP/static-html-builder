@@ -18,7 +18,7 @@
     "grunt-ng-annotate": "^0.10.0",
     "grunt-usemin": "^2.6.2",
     "grunt-wiredep": "^2.0.0",
-    "http-proxy": "^1.9.0",
+    "http-proxy": "^1.10.1",
     "load-grunt-tasks": "^1.0.0",
     "q": "^1.2.0"
   },

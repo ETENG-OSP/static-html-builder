@@ -2,8 +2,11 @@
 
 ## latest
 - 加入 ng-annotate，允许使用 @ngInject 自动注入依赖
+- 整合脚本时，自动加入闭包，防止污染全局命名空间
+- 自动加入严格模式标志 `'use strict';`
+- 支持 svg 图片
 - 升级 grunt-contrib-concat 到 0.5.1
-- 升级 http-proxy 到 1.9.0
+- 升级 http-proxy 到 1.10.1
 - 升级 q 到 1.2.0
 - 去除内置 tutorial 文档支持代码
 
