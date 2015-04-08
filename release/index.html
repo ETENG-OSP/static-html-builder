@@ -128,7 +128,7 @@
     
         <li class="main active"><a href="#_1">版本历史</a></li>
         
-            <li><a href="#latest">latest</a></li>
+            <li><a href="#310-2015-04-">3.1.0 2015-04-</a></li>
         
             <li><a href="#303-2015-03-14">3.0.3 2015-03-14</a></li>
         
@@ -142,11 +142,18 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="_1">版本历史</h1>
-<h2 id="latest">latest</h2>
+<h2 id="310-2015-04-">3.1.0 2015-04-</h2>
 <ul>
+<li>加入 filerev，在每次编译后为文件名加入版本号，保证应用更新后刷新缓存</li>
 <li>加入 ng-annotate，允许使用 @ngInject 自动注入依赖</li>
+<li>整合脚本时，自动加入闭包，防止污染全局命名空间</li>
+<li>编译后自动加入严格模式标志 <code>'use strict';</code></li>
+<li>初始化项目时，自动生成主模块</li>
+<li>支持 svg 图片</li>
+<li>更换 template 脚本到标准 grunt-template 模块</li>
+<li>更换 bower install 脚本到标准 grunt-shell 模块</li>
 <li>升级 grunt-contrib-concat 到 0.5.1</li>
-<li>升级 http-proxy 到 1.9.0</li>
+<li>升级 http-proxy 到 1.10.1</li>
 <li>升级 q 到 1.2.0</li>
 <li>去除内置 tutorial 文档支持代码</li>
 </ul>

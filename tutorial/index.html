@@ -154,11 +154,10 @@
 <h2 id="_2">建立模块</h2>
 <p>模块是应用的组成部分。</p>
 <p>新建一个文件，命名为 <code>app.urgent.js</code>。urgent 是 SHB 的一个特殊符号，代表最早加载的 js 文件。在 <code>app.urgent.js</code> 中，编写以下代码：</p>
-<pre><code class="javascript">// file: app/app.urgent.js
+<pre><code class="javascript">// Source: app/app.urgent.js
 
-(function () {
-  angular.module('app', []);
-})();
+// 建立 app 模块
+angular.module('app', []);
 </code></pre>
 
 <p>编辑文件 <code>project.json</code>，在 <code>main</code> 字段中指定入口模块 <code>app</code>。</p>
@@ -168,162 +167,139 @@
   &quot;dependencies&quot;: {
     &quot;angular-route&quot;: &quot;~1.2&quot;
   },
-  &quot;overrides&quot;: {
-    &quot;marked&quot;: &quot;lib/marked.js&quot;
-  },
   &quot;proxies&quot;: {
     &quot;/api&quot;: &quot;http://localhost:8080&quot;
   }
 }
-
 </code></pre>
 
 <p>这样就建立了一个名为 <code>app</code> 的模块。接下来的教程均会以该模块为例进行说明。在实际环境中，开发者需要自行决定模块的名称与依赖。</p>
 <h2 id="_3">建立路由</h2>
 <p>使用路由来建立 url 与页面的对应关系。</p>
 <p>修改 <code>app.urgent.js</code>，加入路由模块与相应的配置：</p>
-<pre><code class="javascript">(function () {
-  function config($routeProvider) {
-    $routeProvider.when('/', {
-      templateUrl: 'root.html'
-    });
-  }
-  config.$inject = ['$routeProvider'];
+<pre><code class="javascript">// Source: app/app.urgent.js
 
-  angular.module('app', ['ngRoute']).config(config);
-})();
+// 加入对路由模块的依赖
+angular.module('app', ['ngRoute']).config(config);
+
+// 配置路由，使用注解语法标明注入的组件
+// @ngInject
+function config($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: 'root.html'
+  });
+}
 </code></pre>
 
 <p>这样就建立了一个路由关系：当用户访问网站的根目录时，系统会加载 <code>root.html</code> 作为页面的展示部分。</p>
 <h2 id="_4">建立页面</h2>
 <p>单页面应用使用 HTML 片段进行开发。编写代码时无需编写 head 或引入额外的 script。下面是 <code>root.html</code> 的例子：</p>
-<pre><code class="html">&lt;h1&gt;你好世界&lt;/h1&gt;
+<pre><code class="html">&lt;!-- Source: root.html --&gt;
+&lt;h1&gt;你好世界&lt;/h1&gt;
 &lt;p&gt;这是我的第一个应用&lt;/p&gt;
 </code></pre>
 
 <h2 id="_5">建立控制器</h2>
 <p>控制器用于实现用户交互逻辑。</p>
-<pre><code class="javascript">// file: app/root-controller.js
+<pre><code class="javascript">// Source: app/root-controller.js
 
-(function () {
-  /**
-   * 定义 Controller
-   */
-  angular.module('app').controller('RootController', RootController);
+// 定义 Controller
+angular.module('app').controller('RootController', RootController);
 
-  /**
-   * 注入依赖
-   */
-  RootController.$inject = ['$scope'];
-
-  /**
-   * 实现 Controller
-   */
-  function RootController($scope) {
-    $scope.text = '你好世界';
-  }
-})();
+// 实现 Controller
+function RootController() {
+  var vm = this;
+  vm.text = '你好世界';
+}
 </code></pre>
 
 <p>将控制器加入路由，允许页面使用定义好的控制器。</p>
-<pre><code class="javascript">// file: app/app.js
+<pre><code class="javascript">// Source: app/app.js
 
-(function () {
-  angular.module('app', ['ngRoute']).config(config);
-  config.$inject = ['$routeProvider'];
-  function config($routeProvider) {
-    $routeProvider.when('/', {
-      templateUrl: 'root.html',
-      controller: 'RootController'
-    });
-  }
-})();
+angular.module('app', ['ngRoute']).config(config);
+
+// @ngInject
+function config($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: 'root.html',
+    controller: 'RootController',
+    controllerAs: 'root'
+  });
+}
 </code></pre>
 
 <p>在页面使用控制器控制的变量</p>
-<pre><code class="html">&lt;!-- file: app/root.html --&gt;
-
-&lt;h1 ng-bind=&quot;text&quot;&gt;&lt;/h1&gt;
+<pre><code class="html">&lt;!-- Source: app/root.html --&gt;
+&lt;h1 ng-bind=&quot;root.text&quot;&gt;&lt;/h1&gt;
 &lt;p&gt;这是我的第一个应用&lt;/p&gt;
 </code></pre>
 
 <h2 id="_6">使用服务抽象业务逻辑</h2>
 <p>服务用于编写与页面无关的逻辑，比如 http 请求。</p>
-<pre><code class="javascript">// file: app/test-service.js
+<pre><code class="javascript">// Source: app/test-service.js
 
-(function () {  
-  angular.module('app').service('TestService', TestService);
+angular.module('app').service('TestService', TestService);
 
-  TestService.$inject = ['$http', '$q'];
-
-  function TestService($http, $q) {
-    /**
-      * TestService.getDate
-      * 测试 HTTP 调用
-      * @return promise
-      */
-    this.getData = function () {
-      var deferred = $q.defer();
-      $http.get('http://localhost:9001/test')
-        .success(deferred.resolve)
-        .error(deferred.reject);
-      return deferred.promise;
-    }
+// @ngInject
+function TestService($http, $q) {
+  /**
+    * TestService.getDate
+    * 测试 HTTP 调用
+    * @return promise
+    */
+  this.getData = function () {
+    var deferred = $q.defer();
+    $http.get('http://localhost:9001/test')
+      .success(deferred.resolve)
+      .error(deferred.reject);
+    return deferred.promise;
   }
-})();
+}
 </code></pre>
 
 <h2 id="promise">使用 Promise 获取异步操作结果</h2>
 <p><code>$q</code> 用于处理异步操作。</p>
-<pre><code class="javascript">// file: app/root-controller.js
+<pre><code class="javascript">// Source: app/root-controller.js
 
-(function () {
-  /**
-   * 定义 Controller
-   */
-  angular.module('app').controller('RootController', RootController);
+// 定义 Controller
+angular.module('app').controller('RootController', RootController);
 
-  /**
-   * 注入依赖
-   */
-  RootController.$inject = ['$scope', 'TestService'];
+// 实现 Controller
+// @ngInject
+function RootController(TestService) {
+  var vm = this;
 
-  /**
-   * 实现 Controller
-   */
-  function RootController($scope, TestService) {
-    TestService.getData().then(function () {
-      $scope.text = '你好世界';
-    });
-  }
-})();
+  // 调用 Service 方法，并处理 promise 得到的结果
+  TestService.getData().then(function () {
+    vm.text = '你好世界';
+  });
+
+}
 </code></pre>
 
 <h2 id="_7">限制路由访问</h2>
 <p>使用 resolve 配置路由是否成功，如果返回一个失败的 promise，则路由失败。</p>
-<pre><code class="javascript">// file: app/app.js
+<pre><code class="javascript">// Source: app/app.js
 
-(function () {
-  angular.module('app', ['ngRoute']).config(config);
-  config.$inject = ['$routeProvider'];
-  acl.$inject = ['$q'];
+angular.module('app', ['ngRoute']).config(config);
 
-  function config($routeProvider) {
-    $routeProvider.when('/', {
-      templateUrl: 'root.html',
-      controller: 'RootController',
-      resolve: {
-        acl: acl
-      }
-    });
-  }
+// @ngInject
+function config($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: 'root.html',
+    controller: 'RootController',
+    resolve: {
+      acl: acl
+    }
+  });
+}
 
-  function acl($q) {
-    var deferred = $q.defer();
-    deferred.reject();
-    return deferred.promise;
-  }
-})();
+// @ngInject
+function acl($q) {
+  var deferred = $q.defer();
+  deferred.reject();
+  return deferred.promise;
+}
 </code></pre>
 
 <h2 id="directive-view">使用 Directive 封装 View 组件</h2>
@@ -333,28 +309,27 @@
 <li>适配其他框架的初始化代码；</li>
 </ol>
 <p>定义 directive</p>
-<pre><code class="javascript">// file: app/list.js
+<pre><code class="javascript">// Source: app/list.js
 
-(function () {
-  angular.module('app').directive('list', list);
+angular.module('app').directive('list', list);
 
-  list.$inject = ['$http'];
+// @ngInject
+function list($http) {
+  return {
+    template: [
+      '&lt;ul&gt;',
+        '&lt;li ng-repeat=&quot;item in items&quot;&gt;{{item.text}}&lt;/li&gt;',
+      '&lt;/ul&gt;'
+    ].join(''),
+    link: link
+  };
 
-  function list($http) {
-    return {
-      template: [
-        '&lt;ul&gt;',
-          '&lt;li ng-repeat=&quot;item in items&quot;&gt;{{item.text}}&lt;/li&gt;',
-        '&lt;/ul&gt;'
-      ].join(''),
-      link: function (scope, element, attrs) {
-        $http.get(attrs.source).success(function (result) {
-          scope.items = result;
-        });
-      }
-    }
+  function link(scope, element, attrs) {
+    $http.get(attrs.source).success(function (result) {
+      scope.items = result;
+    });
   }
-})();
+}
 </code></pre>
 
 <p>使用 directive</p>
