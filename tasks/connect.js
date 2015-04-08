@@ -1,5 +1,3 @@
-var middleware = require('../lib/middleware.js');
-
 module.exports = function (grunt) {
 
   grunt.config('connect', {
@@ -17,7 +15,7 @@ module.exports = function (grunt) {
     dev: {
       options: {
         livereload: true,
-        middleware: middleware
+        middleware: require('../lib/middleware')
       }
     }
   });

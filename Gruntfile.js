@@ -1,5 +1,8 @@
-module.exports = function (grunt) {
-  'use strict';
+'use strict';
+
+module.exports = gruntfile;
+
+function gruntfile(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
@@ -26,20 +29,22 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('generated', [
-    'concat',
-    'cssmin',
-    'uglify',
-    'less'
+    'concat:generated',
+    'cssmin:generated',
+    'ngAnnotate',
+    'uglify:generated',
+    'less:generated',
+    'concat:useStrict'
   ]);
 
   grunt.registerTask('prepareHtml', [
-    'templateHtml',
+    'template:html',
     'generateProject',
     'includeSource'
   ]);
 
   grunt.registerTask('prepareBower', [
-    'templateBower',
+    'template:bower',
     'wiredep'
   ]);
 
@@ -55,9 +60,10 @@ module.exports = function (grunt) {
     'clean',
     'generateProject',
     'prepareHtml',
-    'templateBower',
-    'bowerInit',
-    'wiredep',
+    'template:bower',
+    'shell:bowerPrune',
+    'shell:bowerInstall',
+    'wiredep'
   ]);
 
   grunt.registerTask('default', ['serve']);

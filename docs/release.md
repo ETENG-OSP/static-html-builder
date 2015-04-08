@@ -5,6 +5,8 @@
 - 整合脚本时，自动加入闭包，防止污染全局命名空间
 - 自动加入严格模式标志 `'use strict';`
 - 支持 svg 图片
+- 更换 template 脚本到标准 grunt-template 模块
+- 更换 bower install 脚本到标准 grunt-shell 模块
 - 升级 grunt-contrib-concat 到 0.5.1
 - 升级 http-proxy 到 1.10.1
 - 升级 q 到 1.2.0

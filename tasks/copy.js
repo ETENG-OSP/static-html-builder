@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 
     app: {
       expand: true,
-      cwd: "<%= config.app %>",
+      cwd: '<%= config.app %>',
       src: [
         '**/*.html',
         '**/*.png',
@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         '**/*.gif',
         '**/*.svg'
       ],
-      dest: "<%= config.dist %>/"
+      dest: "<%= config.dist %>"
     },
 
     framework: {

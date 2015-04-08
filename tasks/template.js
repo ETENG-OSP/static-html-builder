@@ -3,7 +3,6 @@ var appPath = 'templates/app-framework.js';
 var htmlPath = 'templates/index-framework.html';
 
 module.exports = function (grunt) {
-  'use strict';
 
   var project;
 
@@ -25,23 +24,26 @@ module.exports = function (grunt) {
    };
   }
 
+  grunt.config('template', {
 
-  grunt.registerTask('templateBower', function () {
-    var bowerTemplate = grunt.file.read(bowerPath);
-    var bower = grunt.template.process(bowerTemplate, {
-      data: project
-    });
-    grunt.file.write('bower.json', bower);
-  });
+    bower: {
+      files: {
+        'bower.json': 'templates/bower.json'
+      },
+      options: {
+        data: project
+      }
+    },
 
-  grunt.registerTask('templateHtml', function () {
-    grunt.file.write(
-      '.tmp/generated/index-framework.html',
-      grunt.template.process(
-        grunt.file.read(htmlPath),
-        { data: project }
-      )
-    );
+    html: {
+      files: {
+        '.tmp/generated/index-framework.html': 'templates/index-framework.html'
+      },
+      options: {
+        data: project
+      }
+    }
+
   });
 
   grunt.registerTask('generateProject', function () {

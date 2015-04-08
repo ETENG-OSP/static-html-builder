@@ -4,9 +4,9 @@ module.exports = function (grunt) {
     dist: {
       files: [{
         expand: true,
-        cwd: '<% config.temp %>/concat',
+        cwd: '<%= config.temp %>/concat/js',
         src: '*.js',
-        dest: '<% config.temp %>/concat'
+        dest: '<%= config.temp %>/concat/js'
       }]
     },
     options: {
