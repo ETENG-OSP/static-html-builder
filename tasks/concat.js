@@ -19,10 +19,10 @@ module.exports = function (grunt) {
     },
 
     useStrict: {
-      src: ['<%= config.dist %>/js/app.js'],
-      dest: '<%= config.dist %>/js/app.js',
+      src: ['<%= config.temp %>/concat/js/app.js'],
+      dest: '<%= config.temp %>/concat/js/app.js',
       options: {
-        banner:  '\'use strict\';\n'
+        banner:  '\'use strict\';'
       }
     }
 

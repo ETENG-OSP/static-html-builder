@@ -30,11 +30,12 @@ function gruntfile(grunt) {
 
   grunt.registerTask('generated', [
     'concat:generated',
+    'concat:useStrict',
     'cssmin:generated',
     'ngAnnotate',
     'uglify:generated',
     'less:generated',
-    'concat:useStrict'
+    'filerev'
   ]);
 
   grunt.registerTask('prepareHtml', [
