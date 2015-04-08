@@ -1,10 +1,11 @@
 # 版本历史
 
-## latest
+## 3.1.0 2015-04-
 - 加入 filerev，在每次编译后为文件名加入版本号，保证应用更新后刷新缓存
 - 加入 ng-annotate，允许使用 @ngInject 自动注入依赖
 - 整合脚本时，自动加入闭包，防止污染全局命名空间
-- 自动加入严格模式标志 `'use strict';`
+- 编译后自动加入严格模式标志 `'use strict';`
+- 初始化项目时，自动生成主模块
 - 支持 svg 图片
 - 更换 template 脚本到标准 grunt-template 模块
 - 更换 bower install 脚本到标准 grunt-shell 模块

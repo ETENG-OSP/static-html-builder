@@ -51,6 +51,16 @@ module.exports = function (grunt) {
       project = grunt.file.readJSON('app/project.json');
     } catch (e) {
       grunt.file.write('app/project.json', JSON.stringify(project, null, 2));
+      grunt.file.write('app/app.urgent.js', [
+        'angular.module(\'app\', [\'ngRoute\']).config(config);\n',
+        '\n',
+        '// @ngInject\n',
+        'function config($routeProvider) {\n',
+        '  $routeProvider.when(\'/\', {\n',
+        '    template: \'<h1>Welcome</h1>\'\n',
+        '  })\n',
+        '}\n'
+      ].join(''));
     }
   });
 
