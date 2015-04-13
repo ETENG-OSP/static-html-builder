@@ -1,0 +1,13 @@
+{
+  "name": "Static HTML App",
+  "main": "app",
+  "dependencies": {
+    "angular-route": "~1.3"
+  },
+  "overrides": {
+    "marked": "lib/marked.js"
+  },
+  "proxies": {
+    "/api": "http://localhost:8080"
+  }
+}

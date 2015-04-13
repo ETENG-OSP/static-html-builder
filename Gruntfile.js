@@ -25,7 +25,8 @@ function gruntfile(grunt) {
     'copy:framework',
     'useminPrepare',
     'generated',
-    'usemin'
+    'usemin',
+    'ngTemplate'
   ]);
 
   grunt.registerTask('generated', [
@@ -38,10 +39,17 @@ function gruntfile(grunt) {
     'filerev'
   ]);
 
+  grunt.registerTask('ngTemplate', [
+    'htmlmin',
+    'concat:ngTemplate',
+    'replace'
+  ]);
+
   grunt.registerTask('prepareHtml', [
     'template:html',
     'generateProject',
-    'includeSource'
+    'includeSource:scripts',
+    'includeSource:stylesheets'
   ]);
 
   grunt.registerTask('prepareBower', [

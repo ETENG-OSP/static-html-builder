@@ -6,7 +6,6 @@ module.exports = function (grunt) {
       expand: true,
       cwd: '<%= config.app %>',
       src: [
-        '**/*.html',
         '**/*.png',
         '**/*.jpg',
         '**/*.jpeg',

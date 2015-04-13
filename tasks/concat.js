@@ -24,6 +24,16 @@ module.exports = function (grunt) {
       options: {
         banner:  '\'use strict\';'
       }
+    },
+
+    ngTemplate: {
+      src: ['<%= config.temp %>/ngTemplate/src/**/*.html'],
+      dest: '<%= config.temp %>/ngTemplate/concat.html',
+      options: {
+        process: function (src, filepath) {
+          return '<script id="' + path.relative('.tmp/ngTemplate/src/', filepath) + '" type="text/ng-template">' + src + '</script>';
+        }
+      }
     }
 
   });

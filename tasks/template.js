@@ -9,19 +9,7 @@ module.exports = function (grunt) {
   try {
     project = grunt.file.readJSON('app/project.json');
   } catch (e) {
-    project = {
-     name: 'Static HTML App',
-     main: 'app',
-     dependencies: {
-       'angular-route': '~1.3'
-     },
-     overrides: {
-       marked: 'lib/marked.js'
-     },
-     proxies: {
-       '/api': 'http://localhost:8080'
-     }
-   };
+    project = grunt.file.readJSON('templates/project.json');
   }
 
   grunt.config('template', {
@@ -51,16 +39,7 @@ module.exports = function (grunt) {
       project = grunt.file.readJSON('app/project.json');
     } catch (e) {
       grunt.file.write('app/project.json', JSON.stringify(project, null, 2));
-      grunt.file.write('app/app.urgent.js', [
-        'angular.module(\'app\', [\'ngRoute\']).config(config);\n',
-        '\n',
-        '// @ngInject\n',
-        'function config($routeProvider) {\n',
-        '  $routeProvider.when(\'/\', {\n',
-        '    template: \'<h1>Welcome</h1>\'\n',
-        '  })\n',
-        '}\n'
-      ].join(''));
+      grunt.file.write('app/app.urgent.js', grunt.file.read('templates/app.urgent.js'));
     }
   });
 
