@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>版本历史 - Static HTML Builder</title>
+  <title>高级技巧 - Static HTML Builder</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -74,8 +74,15 @@
 
     
         
-            <li class="toctree-l1 ">
-                <a class="" href="../advenced/">高级技巧</a>
+            <li class="toctree-l1 current">
+                <a class="current" href="./">高级技巧</a>
+                
+                    <ul>
+                    
+                        <li class="toctree-l3"><a href="#ngresource-restful-api">使用 ngResource 封装 RESTFul API</a></li>
+                        
+                    
+                    </ul>
                 
             </li>
         
@@ -98,25 +105,8 @@
 
     
         
-            <li class="toctree-l1 current">
-                <a class="current" href="./">版本历史</a>
-                
-                    <ul>
-                    
-                        <li class="toctree-l3"><a href="#_1">版本历史</a></li>
-                        
-                            <li><a class="toctree-l4" href="#311-2015-04-29">3.1.1 (2015-04-29)</a></li>
-                        
-                            <li><a class="toctree-l4" href="#310-2015-04-08">3.1.0 (2015-04-08)</a></li>
-                        
-                            <li><a class="toctree-l4" href="#303-2015-03-14">3.0.3 (2015-03-14)</a></li>
-                        
-                            <li><a class="toctree-l4" href="#302">3.0.2</a></li>
-                        
-                            <li><a class="toctree-l4" href="#301-2015-02-03">3.0.1 (2015-02-03)</a></li>
-                        
-                    
-                    </ul>
+            <li class="toctree-l1 ">
+                <a class="" href="../release/">版本历史</a>
                 
             </li>
         
@@ -143,7 +133,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="..">Docs</a> &raquo;</li>
     
-    <li>版本历史</li>
+    <li>高级技巧</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -156,64 +146,103 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="_1">版本历史</h1>
-<h2 id="311-2015-04-29">3.1.1 (2015-04-29)</h2>
+              <h2 id="ngresource-restful-api">使用 ngResource 封装 RESTFul API</h2>
+<p>我们通常不使用 Controller 直接调用 HTTP 请求，而是把这些请求通过 Service 封装后使用。这么做的好处是：</p>
 <ul>
-<li>自动压缩 html 片段，减小下载量</li>
-<li>html 片段编译时加入 index.html，减小首次加载延迟</li>
-<li>模板加载优化</li>
-<li>更新 grunt-filerev 到 2.3.1</li>
-<li>更新 http-proxy 到 1.11.1</li>
+<li>可以在多个地方重复使用</li>
+<li>分离关注点，Controller 放置用户交互的逻辑，Service 放置与界面无关的逻辑</li>
 </ul>
-<h2 id="310-2015-04-08">3.1.0 (2015-04-08)</h2>
+<p>基本的做法是：</p>
+<pre><code class="javascript">angular.module('app').service('Message', MessageService);
+
+// @ngInject
+function MessageService($http, $q) {
+
+  this.getAll = function () {
+    var deferred = $q.defer();
+    $http.get('/api/messages')
+      .success(deferred.resolve)
+      .error(deferred.reject);
+    return deferred.promise;
+  };
+
+  this.getById = function (id) {
+    var deferred = $q.defer();
+    $http.get('/api/messages/' + id)
+      .success(deferred.resolve)
+      .error(deferred.reject);
+    return deferred.promise;
+  };
+
+}
+</code></pre>
+
+<p>使用方法是：</p>
+<pre><code class="javascript">angular.module('app').controller('PageController', PageController);
+
+// @ngInject
+function PageController(Message) {
+
+  var vm = this;
+
+  load();
+
+  function load() {
+    Message.getAll().then(function (messages) {
+      vm.messages = messages;
+    });
+  }
+}
+</code></pre>
+
+<p>这么做每次都要写大量增删改查的代码，很麻烦。更好的做法是使用 ngResource 代替自己写的 Service，好处是：</p>
 <ul>
-<li>加入 filerev，在每次编译后为文件名加入版本号，保证应用更新后刷新缓存</li>
-<li>加入 ng-annotate，允许使用 <code>// @ngInject</code> 自动注入依赖</li>
-<li>整合脚本时，自动加入闭包，防止污染全局命名空间</li>
-<li>编译后自动加入严格模式标志 <code>'use strict';</code></li>
-<li>支持 svg 图片</li>
-<li>初始化项目时，自动生成主模块</li>
-<li>更换 template 脚本到标准 grunt-template 模块</li>
-<li>更换 bower install 脚本到标准 grunt-shell 模块</li>
-<li>升级 grunt-contrib-concat 到 0.5.1</li>
-<li>升级 http-proxy 到 1.10.1</li>
-<li>去除内置 tutorial 文档支持代码</li>
+<li>基本增删改查自动生成，无需编写额外的代码</li>
+<li>自动解决 Promise，更直观</li>
 </ul>
-<h2 id="303-2015-03-14">3.0.3 (2015-03-14)</h2>
-<ul>
-<li>修正路由切换后滚动条未重置的问题</li>
-</ul>
-<h2 id="302">3.0.2</h2>
-<ul>
-<li>修正 project.json 无法修改 HTML 内容问题</li>
-<li>修正 grunt install 无法运行问题</li>
-<li>修正 less 中 url 引用的路径问题</li>
-<li>升级 angular 到 1.3.x</li>
-<li>移除内置的 tutorial</li>
-<li>精简</li>
-</ul>
-<h2 id="301-2015-02-03">3.0.1 (2015-02-03)</h2>
-<ul>
-<li>加入 mkdocs 文档，在线文档地址为 http://gengen1988.github.io/static-html-builder/</li>
-<li>移除对 ngRoute 的引用，允许自由选用路由模块</li>
-<li>加入对 ui.router 的支持</li>
-<li>project.json 中，加入 main，用于指定入口模块</li>
-<li>project.json 中，加入 name，用于指定 HTML title</li>
-<li>project.json 中，bowerDependencies 更名为 dependencies</li>
-<li>project.json 中，bowerOverrides 更名为 overrides</li>
-<li>project.json 中，移除 angularModules，将 Angular 依赖放入应用中配置</li>
-<li>project.json 中，移除 tutorial，使用 docs 代替</li>
-<li>project.json 中，加入默认配置项</li>
-<li>重构 grunt tasks，移除未使用的任务</li>
-</ul>
+<p>使用之前先将 ngResource 安装好，并加入依赖：</p>
+<pre><code class="bash">bower install --save angular-resource
+</code></pre>
+
+<p>Service 编写方法为：</p>
+<pre><code class="javascript">angular.module('app').factory('Message', MessageFactory);
+
+// @ngInject
+function MessageFactory($resource) {
+
+  return $resource('/api/messages', {}, {});
+
+}
+</code></pre>
+
+<p>使用方法为：</p>
+<pre><code class="javascript">angular.module('app').controller('PageController', PageController);
+
+// @ngInject
+function PageController(Message) {
+
+  var vm = this;
+
+  load();
+
+  function load() {
+    vm.messages = Message.query();
+  }
+
+}
+</code></pre>
+
+<p>更详细的写法请参考官方文档：<a href="http://docs.angularjs.cn/api/ngResource/service/$resource">angular-resource</a></p>
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../recommend/" class="btn btn-neutral float-right" title="推荐模块"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../cordova/" class="btn btn-neutral" title="手机应用打包帮助"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../tutorial/" class="btn btn-neutral" title="教程"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -241,14 +270,14 @@
         
             <a href="https://github.com/gengen1988/static-html-builder" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
         
-      <span><a href="../cordova/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../tutorial/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../recommend/" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-04-29 15:09:20.448040
+Docs Build Date : 2015-04-29 15:09:20.427800
 -->
 </body>
 </html>

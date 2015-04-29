@@ -63,17 +63,19 @@
                 
                     <ul>
                     
-                        <li class="toctree-l3"><a href="#_1">开始使用</a></li>
+                        <li class="toctree-l3"><a href="#_1">如何安装</a></li>
                         
-                            <li><a class="toctree-l4" href="#_2">如何安装</a></li>
+                    
+                        <li class="toctree-l3"><a href="#_2">文件结构说明</a></li>
                         
-                            <li><a class="toctree-l4" href="#_3">文件结构说明</a></li>
+                    
+                        <li class="toctree-l3"><a href="#_3">符号链接创建方法</a></li>
                         
-                            <li><a class="toctree-l4" href="#_4">符号链接创建方法</a></li>
+                    
+                        <li class="toctree-l3"><a href="#_4">引入第三方依赖</a></li>
                         
-                            <li><a class="toctree-l4" href="#_5">引入第三方依赖</a></li>
-                        
-                            <li><a class="toctree-l4" href="#_6">升级指南</a></li>
+                    
+                        <li class="toctree-l3"><a href="#_5">升级指南</a></li>
                         
                     
                     </ul>
@@ -92,7 +94,7 @@
     
         
             <li class="toctree-l1 ">
-                <a class="" href="../release/">版本历史</a>
+                <a class="" href="../advenced/">高级技巧</a>
                 
             </li>
         
@@ -100,7 +102,23 @@
     
         
             <li class="toctree-l1 ">
-                <a class="" href="../cordova/">cordova打包帮助</a>
+                <a class="" href="../recommend/">推荐模块</a>
+                
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../cordova/">手机应用打包帮助</a>
+                
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../release/">版本历史</a>
                 
             </li>
         
@@ -140,14 +158,13 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="_1">开始使用</h1>
-<h2 id="_2">如何安装</h2>
+              <h2 id="_1">如何安装</h2>
 <pre><code class="bash">git clone https://github.com/gengen1988/static-html-builder.git
 cd static-html-builder
 npm install
 </code></pre>
 
-<h2 id="_3">文件结构说明</h2>
+<h2 id="_2">文件结构说明</h2>
 <table>
 <thead>
 <tr>
@@ -178,7 +195,7 @@ npm install
 </tr>
 </tbody>
 </table>
-<h2 id="_4">符号链接创建方法</h2>
+<h2 id="_3">符号链接创建方法</h2>
 <p>linux</p>
 <pre><code class="bash">ln -s source target
 </code></pre>
@@ -187,13 +204,13 @@ npm install
 <pre><code class="bash">mklink /j target source
 </code></pre>
 
-<h2 id="_5">引入第三方依赖</h2>
+<h2 id="_4">引入第三方依赖</h2>
 <pre><code class="bash">bower install &lt;包名&gt;
 </code></pre>
 
 <p>安装完成后，修改 <code>project.json</code> 加入新项目的包名与版本。</p>
 <p>最后执行 <code>grunt init</code> 确保安装成功。</p>
-<h2 id="_6">升级指南</h2>
+<h2 id="_5">升级指南</h2>
 <pre><code class="bash">git pull
 </code></pre>
             </div>
@@ -240,7 +257,7 @@ npm install
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-04-29 14:07:56.930535
+Docs Build Date : 2015-04-29 15:09:20.413473
 -->
 </body>
 </html>
