@@ -6,8 +6,10 @@ pages:
   - [index.md, Home]
   - [getting-started.md, 开始使用]
   - [tutorial.md, 教程]
+  - [advenced.md, 高级技巧]
+  - [recommend.md, 推荐模块]
+  - [cordova.md, 手机应用打包帮助]
   - [release.md, 版本历史]
-  - [cordova.md, cordova打包帮助]
 
 repo_url: https://github.com/gengen1988/static-html-builder
 
