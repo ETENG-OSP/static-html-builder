@@ -217,6 +217,8 @@ function list($http) {
   };
 
   function link(scope, element, attrs) {
+
+    // 获取 data-source 属性的值，并请求后台
     $http.get(attrs.source).success(function (result) {
       scope.items = result;
     });

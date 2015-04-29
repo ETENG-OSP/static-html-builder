@@ -33,15 +33,16 @@ windows
 mklink /j target source
 ```
 
-app 目录
-
-
 引入第三方依赖
 -----
 
 ```bash
 bower install <包名>
 ```
+
+安装完成后，修改 `project.json` 加入新项目的包名与版本。
+
+最后执行 `grunt init` 确保安装成功。
 
 升级指南
 -------

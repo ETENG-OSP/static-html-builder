@@ -1,5 +1,7 @@
 site_name: Static HTML Builder
 
+theme: readthedocs
+
 pages:
   - [index.md, Home]
   - [getting-started.md, 开始使用]
@@ -9,4 +11,4 @@ pages:
 
 repo_url: https://github.com/gengen1988/static-html-builder
 
-google_analytics: ['UA-xxxxxxxx-x', 'hostname']
+google_analytics: ['UA-62410339-1', 'auto']
