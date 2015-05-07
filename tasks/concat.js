@@ -31,7 +31,11 @@ module.exports = function (grunt) {
       dest: '<%= config.temp %>/ngTemplate/concat.html',
       options: {
         process: function (src, filepath) {
-          return '<script id="' + path.relative('.tmp/ngTemplate/src/', filepath) + '" type="text/ng-template">' + src + '</script>';
+          var templateUrl = path.relative('.tmp/ngTemplate/src/', filepath)
+            .split(path.sep)
+            .join('/');
+
+          return '<script id="' + templateUrl + '" type="text/ng-template">' + src + '</script>';
         }
       }
     }
