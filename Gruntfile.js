@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = gruntfile;
 
 function gruntfile(grunt) {
@@ -77,4 +75,4 @@ function gruntfile(grunt) {
 
   grunt.registerTask('default', ['serve']);
 
-};
+}

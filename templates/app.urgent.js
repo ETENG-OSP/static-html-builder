@@ -1,8 +1,10 @@
 angular.module('app', ['ngRoute']).config(config);
 
-// @ngInject
+/**
+ * @ngInject
+ */
 function config($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'views/home.html'
-  })
+  });
 }
