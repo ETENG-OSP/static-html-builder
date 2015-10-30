@@ -9,3 +9,5 @@ bower.json
 
 .*
 *.log
+
+config.user.js
