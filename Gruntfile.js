@@ -24,7 +24,8 @@ function gruntfile(grunt) {
     'useminPrepare',
     'generated',
     'usemin',
-    'ngTemplate'
+    'ngTemplate',
+    'copyFont'
   ]);
 
   grunt.registerTask('generated', [
@@ -56,7 +57,6 @@ function gruntfile(grunt) {
   ]);
 
   grunt.registerTask('serve', [
-    // 'jshint',
     'prepareHtml',
     'prepareBower',
     'connect:dev',
@@ -71,6 +71,13 @@ function gruntfile(grunt) {
     'shell:bowerPrune',
     'shell:bowerInstall',
     'wiredep'
+  ]);
+
+  grunt.registerTask('copyFont', [
+    'copy:bootstrapFonts',
+    'copy:fontawesomeFonts',
+    'copy:ioniconFonts',
+    'copy:icomoonFonts'
   ]);
 
   grunt.registerTask('default', ['serve']);
